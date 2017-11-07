@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/cCatImage"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/appetizer"/>
+
+    <TextView
+        android:id="@+id/cCatName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cCatImage"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/cCatImage"
+        android:layout_marginRight="10dp"
+        android:layout_toEndOf="@+id/cCatImage"
+        android:gravity="center_vertical"
+        android:text="category"
+        android:textColor="#555"
+        android:textSize="12sp"/>
+</RelativeLayout>

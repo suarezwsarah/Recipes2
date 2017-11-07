@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/spacing_middle"
+    android:paddingBottom="@dimen/spacing_middle">
+
+    <RelativeLayout
+        android:id="@+id/crBkgLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/crAvatarImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/splashlogo" />
+
+        <TextView
+            android:id="@+id/crFullnameTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/crAvatarImg"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_toEndOf="@+id/crAvatarImg"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="loading..."
+            android:textColor="#333"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/crRecipeImg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/crAvatarImg"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/backgroud" />
+
+        <TextView
+            android:id="@+id/crRecipeTitletxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/crFullnameTxt"
+            android:layout_alignStart="@+id/crAvatarImg"
+            android:layout_below="@+id/crRecipeImg"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="9sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/crCategoryTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/crRecipeImg"
+            android:layout_alignStart="@+id/crFullnameTxt"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_toStartOf="@+id/linearLayout3"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="loading..."
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/crRecipeImg"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/spacing_middle">
+
+            <Button
+                android:id="@+id/crLikeButt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_above="@+id/crCategoryTxt"
+                android:layout_toStartOf="@+id/crCommentButt"
+                android:background="@drawable/like_butt"
+                android:backgroundTint="@color/white" />
+
+            <TextView
+                android:id="@+id/crLikesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/crCategoryTxt"
+                android:layout_toStartOf="@+id/crCommentButt"
+                android:gravity="center_vertical"
+                android:text="•••"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+            <ImageView
+                android:id="@+id/crCommentButt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_above="@+id/crCategoryTxt"
+                android:layout_toStartOf="@+id/crCommentsTxt"
+                android:background="@drawable/comment_butt"
+                android:backgroundTint="@color/white" />
+
+            <TextView
+                android:id="@+id/crCommentsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/crCategoryTxt"
+                android:layout_alignEnd="@+id/crCategoryTxt"
+                android:gravity="top|bottom|center_vertical|fill_vertical|center|fill"
+                android:text="•••"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

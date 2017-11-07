@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mba2dna.apps.bnina">
+
+    <!-- permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- For Push Notifications -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!-- IMPORTANT: Replabninaes" with your own app's package name! -->
+    <permission
+        android:name="com.mba2dna.apps.bnina.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.recipes.permission.C2D_MESSAGE" />
+
+    <application
+        android:name="com.mba2dna.apps.bnina.Configs"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light"
+        android:fullBackupContent="@xml/backup_descriptor">
+
+        <!-- Splash screen -->
+        <activity
+            android:name="com.mba2dna.apps.bnina.SplashScreen"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- IMPORTANT: Replace "676980399521" with your own GCM Sender Id! -->
+        <meta-data
+            android:name="com.parse.push.gcm_sender_id"
+            android:value="id:676980399521" />
+
+        <service android:name="com.parse.PushService" />
+
+        <!-- For Facebook SDK -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!-- IMPORTANT: Replabninaes" with your own app's package name! -->
+                <category android:name="com.recipes" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.ParsePushBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+                <action android:name="com.parse.push.intent.DELETE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Other Activites -->
+        <activity android:name="com.mba2dna.apps.bnina.Home" />
+        <activity android:name="com.mba2dna.apps.bnina.RecipeDetails"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.Login"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.SignUp"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.OtherUserProfile"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.Categories"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.Shopping"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.Account"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.ActivityScreen"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.EditProfile"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.AddEditRecipe"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.Comments"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ed3851</color>
+    <color name="colorPrimaryDark">#d72249</color>
+    <color name="colorAccent">#ed3851</color>
+    <color name="yellow_color">#ed3851</color>
+    <color name="gray_color">#c8c8c8</color>
+    <color name="dark_white">#f1f1f1</color>
+    <color name="text_color">#280000</color>
+
+
+    <color name="album_title">#4c4c4c</color>
+    <color name="todays">#fff</color>
+    <color name="splash_font">#3B2314</color>
+
+
+    <color name="colorPrimaryLight">#368dc6</color>
+
+
+    <color name="colorAccentDark">#d78401</color>
+
+    <color name="grey_hard">#96989A</color>
+    <color name="grey_medium">#BDBFC1</color>
+    <color name="grey_soft">#F5F5F5</color>
+    <color name="grey_dark">#332C2B</color>
+
+    <color name="grey_bg">#E6E6E6</color>
+    <color name="icon_drawer_color">#727272</color>
+    <color name="wave_color">#f39c12</color>
+    <color name="white">#ffffff</color>
+    <color name="timestamp">#a0a3a7</color>
+    <color name="textcolor">#2c3e50</color>
+    <color name="textError">#F44336</color>
+
+    <color name="textSub">#76818a</color>
+    <color name="Tex">#404547</color>
+    <color name="White">#fff</color>
+
+    <color name="facebook">#3b5999</color>
+    <color name="facebookDark">#304A7D</color>
+    <color name="colordevider">#f1f2f4</color>
+    <color name="colorbutton">#ff5254</color>
+    <color name="iconcolour">#9ba4ab</color>
+    <color name="strok">#e4e5ea</color>
+
+
+    <color name="green">#5ccc78</color>
+    <color name="red">#ea495f</color>
+    <color name="yellow">#f8d64e</color>
+    <color name="light_green">#1bac94</color>
+
+    <color name="colortext">#100b20</color>
+    <color name="colorhint">#a9aaac</color>
+    <color name="custom_theme_darker">#d72249</color>
+    <color name="custom_theme_dark">#d72249</color>
+    <color name="custom_theme_primary">#ed3851</color>
+    <color name="custom_theme_light">#fae8c8</color>
+
+    <integer-array name="custom_theme">
+        <item>@color/custom_theme_darker</item> <!-- really much darker color of main color -->
+        <item>@color/custom_theme_dark</item> <!-- a bit darker color of your main color -->
+        <item>@color/custom_theme_primary</item> <!-- main color of your theme -->
+        <item>@color/custom_theme_light</item> <!-- really much lighter color of main color -->
+    </integer-array>
+
+    <!--DEFAULTS-->
+    <color name="defaultBgColor">#323232</color>
+    <color name="defaultActionColor">#19B491</color>
+
+
+
+
+
+</resources>

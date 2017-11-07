@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/com_facebook_button_login_silver_background_color"
+    android:focusableInTouchMode="true"
+    tools:context=".Home">
+
+
+    <!-- TAB BAR -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tab_one"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/home_butt"
+            android:backgroundTint="#000"
+            android:paddingTop="25dp"
+            android:text="الوصفات"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/tab_two"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/shopping_butt"
+            android:backgroundTint="#555"
+            android:paddingTop="25dp"
+            android:text="المشتريات"
+            android:textAllCaps="false"
+            android:textColor="#555"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/tab_three"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/account_butt"
+            android:backgroundTint="#555"
+            android:paddingTop="25dp"
+            android:text="الحساب"
+            android:textAllCaps="false"
+            android:textColor="#555"
+            android:textSize="9dp" />
+    </LinearLayout>
+
+
+    <!-- ADMOB BANNER VIEW -->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/admobBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ADMOB_BANNER_UNIT_ID"></com.google.android.gms.ads.AdView>
+
+
+    <!-- TOP BAR -->
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary">
+
+        <Button
+            android:id="@+id/hSearchButt"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/search_butt"
+            android:backgroundTint="@color/white" />
+
+        <Button
+            android:id="@+id/hRefreshButt"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignBaseline="@+id/hSearchButt"
+            android:layout_alignBottom="@+id/hSearchButt"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_toStartOf="@+id/hSearchButt"
+            android:background="@drawable/refresh_butt"
+            android:backgroundTint="@color/white" />
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/splashlogo"
+            android:gravity="center_vertical"
+
+            />
+
+        <TextView
+            android:id="@+id/hTitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="RECIPES"
+            android:textColor="#fff"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/hFilterButt"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/filter_butt"
+            android:backgroundTint="@color/white" />
+    </RelativeLayout>
+
+
+    <GridView
+        android:id="@+id/hRecipesGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/admobBanner"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/dark_white" />
+
+    <LinearLayout
+        android:id="@+id/hSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginTop="5dp"
+        android:background="#888"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/hSearchTxt"
+            android:layout_width="229dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="24.75"
+            android:background="@drawable/rounded_corner"
+            android:ems="10"
+            android:hint="أكتب هنا..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingStart="8dp"
+            android:textColor="#333"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/hCancelButt"
+            android:layout_width="74dp"
+            android:layout_height="44dp"
+            android:background="@android:color/transparent"
+            android:text="إلغاء"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</RelativeLayout>

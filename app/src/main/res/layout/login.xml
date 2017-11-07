@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:focusableInTouchMode="true"
+    tools:context=".Login">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <Button
+            android:id="@+id/loginDismissButt"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/dismiss_butt"
+            android:backgroundTint="@color/white"/>
+
+        <ImageView
+            android:id="@+id/loginLogoImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splashlogo" />
+
+        <TextView
+            android:id="@+id/loginTitleTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginLogoImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/usernameTxt"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/loginTitleTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="البريد الإلكتروني"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#333"
+            android:textColorHint="#777"
+            android:textSize="12sp"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/loginSeparator"
+            android:layout_width="260dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/usernameTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:textAlignment="center"></LinearLayout>
+
+
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_alignStart="@+id/usernameTxt"
+            android:layout_below="@+id/usernameTxt"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="كلمة السر"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="#333"
+            android:textColorHint="#777"
+            android:textSize="12sp"
+
+            />
+
+        <!--  <Button
+                      android:id="@+id/loginButt"
+                      android:layout_width="260dp"
+                      android:layout_height="50dp"
+                      android:layout_below="@+id/passwordTxt"
+                      android:layout_centerHorizontal="true"
+                      android:layout_marginTop="15dp"
+                      android:backgroundTint="#555"
+                      android:text="Login"
+                      android:textColor="#fff"
+                      android:textSize="12sp"
+                      android:textStyle="bold"/>-->
+        <Button
+            android:id="@+id/loginButt"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/passwordTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="الدخول"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/facebookButt"
+            android:layout_width="260dp"
+            android:layout_height="44dp"
+            android:layout_alignEnd="@+id/loginButt"
+            android:layout_alignStart="@+id/loginButt"
+            android:layout_below="@+id/loginButt"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/facebook_butt" />
+
+        <Button
+            android:id="@+id/signUpButt"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:text="تسجيل حساب جديد"
+            android:textColor="#555"
+            android:textSize="11sp"
+            android:textStyle="normal|bold"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/forgotPassButt"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:text="نسيت كلمة المرور ؟"
+            android:textColor="#555"
+            android:textSize="11sp"
+            android:textStyle="normal|bold" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

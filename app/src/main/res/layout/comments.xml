@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layoutDirection="rtl">
+
+    <RelativeLayout
+        android:background="#fff"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:fontFamily="sans-serif"
+            android:gravity="top|bottom|center_vertical|fill_vertical|center|fill"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="تعليقات"
+            android:textColor="#333"
+            android:textStyle="bold" />
+
+        <Button
+            android:background="@drawable/back_butt"
+            android:id="@+id/commBackButt"
+            android:layout_height="44dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_width="44dp" />
+
+        <Button
+            android:background="@drawable/refresh_butt"
+            android:id="@+id/commRefreshButt"
+            android:layout_alignBottom="@+id/commBackButt"
+            android:layout_alignParentEnd="true"
+            android:layout_height="44dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="44dp" />
+    </RelativeLayout>
+
+    <ListView
+        android:divider="#999"
+        android:dividerHeight="1dp"
+        android:id="@+id/commCommentsListView"
+        android:layout_above="@+id/ccCommentEditText"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent" />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        ads:adUnitId="@string/ADMOB_BANNER_UNIT_ID"
+        ads:adSize="BANNER"
+        android:id="@+id/admobBanner"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <EditText
+        android:ems="10"
+        android:hint="ارسل تعليق"
+        android:id="@+id/ccCommentEditText"
+        android:inputType="text"
+        android:layout_alignBottom="@+id/comSendCommButt"
+        android:layout_alignTop="@+id/comSendCommButt"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/comSendCommButt"
+        android:layout_width="match_parent"
+        android:paddingStart="8dp"
+        android:textSize="12sp" />
+
+    <Button
+        android:background="@drawable/send_comment_butt"
+        android:id="@+id/comSendCommButt"
+        android:layout_above="@+id/admobBanner"
+        android:layout_alignParentEnd="true"
+        android:layout_height="44dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="44dp"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+
