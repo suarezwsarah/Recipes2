@@ -136,12 +136,17 @@
         <Button
             android:id="@+id/facebookButt"
             android:layout_width="260dp"
-            android:layout_height="44dp"
-            android:layout_alignEnd="@+id/loginButt"
-            android:layout_alignStart="@+id/loginButt"
+            android:layout_height="40dp"
             android:layout_below="@+id/loginButt"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/facebook_butt" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/facebook"
+            android:drawableLeft="@drawable/facebook"
+            android:text="الإستمرار عن طريق الفايسبوك"
+            android:textColor="@color/white"
+            />
 
         <Button
             android:id="@+id/signUpButt"

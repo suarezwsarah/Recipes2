@@ -3,7 +3,8 @@
     android:layout_centerInParent="true"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layoutDirection="rtl">
 
     <RelativeLayout
         android:background="#fff"
@@ -19,12 +20,12 @@
         <ProgressBar
 
             android:id="@+id/progressBar2"
-            android:indeterminateTint="#333"
+            android:indeterminateTint="@color/colorPrimary"
             android:layout_below="@+id/pdTitleTxt"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="false"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content" />
 

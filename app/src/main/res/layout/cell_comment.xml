@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ccAvatarImg"
@@ -17,9 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/ccAvatarImg"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/ccAvatarImg"
-        android:fontFamily="sans-serif-condensed"
         android:text="loading..."
         android:textStyle="bold" />
 
@@ -28,11 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ccFullnameTxt"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/ccAvatarImg"
-        android:fontFamily="sans-serif-condensed"
+        android:gravity="right"
         android:text="loading..."
         android:textSize="12sp" />
 

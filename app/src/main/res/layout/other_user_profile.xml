@@ -71,7 +71,7 @@
         android:layout_marginTop="10dp"
         ads:civ_border_color="#fff"
         ads:civ_border_width="2dp"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/splashlogo"/>
 
 
     <!-- ADMOB BANNER VIEW -->

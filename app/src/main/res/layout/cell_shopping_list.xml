@@ -13,7 +13,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
+        android:gravity="center_vertical|right"
         android:text="ingredient"
         android:textColor="#333"
         android:textSize="11sp"

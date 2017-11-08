@@ -137,12 +137,25 @@
                 android:backgroundTint="@color/colorPrimary"
 
                  />
-
+            <Button
+                android:id="@+id/facebookButt"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/signUpButt2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/facebook"
+                android:drawableLeft="@drawable/facebook"
+                android:text="الإستمرار عن طريق الفايسبوك"
+                android:textColor="@color/white"
+                />
             <Button
                 android:id="@+id/touButt"
                 android:layout_width="260dp"
                 android:layout_height="40dp"
-                android:layout_below="@+id/signUpButt2"
+                android:layout_below="@+id/facebookButt"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_corner"

@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                xmlns:ads="http://schemas.android.com/apk/res-auto">
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/caAvatarImg"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:scaleType="centerCrop"
         android:src="@drawable/splashlogo"/>
@@ -21,10 +22,10 @@
         android:layout_alignBottom="@+id/caAvatarImg"
         android:layout_alignTop="@+id/caAvatarImg"
         android:layout_marginBottom="15dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="right"
         android:layout_toEndOf="@+id/caAvatarImg"
-        android:fontFamily="sans-serif-condensed"
         android:text="loading..."
         android:textColor="#333"
         android:textSize="11sp"/>

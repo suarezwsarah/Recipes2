@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/spacing_middle"
-    android:paddingBottom="@dimen/spacing_middle">
+    android:paddingBottom="@dimen/spacing_middle"
+    android:layoutDirection="rtl">
 
     <RelativeLayout
         android:id="@+id/crBkgLayout"
@@ -33,15 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/crAvatarImg"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-5dp"
             android:layout_toEndOf="@+id/crAvatarImg"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:maxLines="2"
             android:text="loading..."
             android:textColor="#333"
-            android:textSize="15sp" />
+            android:textSize="13sp"
+            />
 
         <ImageView
             android:id="@+id/crRecipeImg"
@@ -72,14 +73,15 @@
             android:id="@+id/crCategoryTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/crRecipeImg"
-            android:layout_alignStart="@+id/crFullnameTxt"
+            android:layout_below="@+id/crFullnameTxt"
             android:layout_marginTop="@dimen/spacing_small"
-            android:layout_toStartOf="@+id/linearLayout3"
+            android:layout_alignStart="@+id/crFullnameTxt"
             android:maxLines="1"
             android:singleLine="true"
+            android:gravity="right"
+
             android:text="loading..."
-            android:textSize="12sp" />
+            android:textSize="11sp" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
