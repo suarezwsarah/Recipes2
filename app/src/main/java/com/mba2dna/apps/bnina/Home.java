@@ -40,7 +40,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.facebook.appevents.AppEventsConstants;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.parse.DeleteCallback;
@@ -92,7 +91,7 @@ public class Home extends AppCompatActivity {
             ParseInstallation installation = ParseInstallation.getCurrentInstallation();
 
             // IMPORTANT: Replace "676980399521" with your own GCM Sender Id. -->
-            installation.put("GCMSenderId", "676980399521");
+            installation.put("GCMSenderId", "93946842223");
 
             installation.put("userID", ParseUser.getCurrentUser().getObjectId());
             installation.put("username", ParseUser.getCurrentUser().getUsername());
@@ -326,7 +325,7 @@ public class Home extends AppCompatActivity {
                                     if (rObj.getNumber(Configs.RECIPES_COMMENTS) != null) {
                                         commTxt.setText(Configs.roundThousandsIntoK(rObj.getInt(Configs.RECIPES_COMMENTS)));
                                     } else {
-                                        commTxt.setText(AppEventsConstants.EVENT_PARAM_VALUE_NO);
+                                        commTxt.setText("0");
                                     }
                                     // Get Cover Image
                                     final ImageView coverImg = (ImageView) finalCell.findViewById(R.id.crRecipeImg);

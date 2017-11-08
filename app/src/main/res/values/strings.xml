@@ -12,7 +12,7 @@
     <!-- IMPORTANT: REPLACE THE STRING BELOW WITH YOUR OWN FACEBOOK APP ID YOU'LL GET ON https://developers.facebook.com/apps/ -->
     <string name="facebook_app_id">1361109130667700</string>
     <string name="account">الحساب</string>
-    <string name="you_re_not_logged_in_or_registered_want_to_do_it_now">You\'re not logged in or registered. Want to do it now?</string>
+    <string name="you_re_not_logged_in_or_registered_want_to_do_it_now">لم تسجل الدخول أو سجلت. تريد أن تفعل ذلك الآن؟</string>
     <string name="login">الدخول</string>
     <string name="loading">تحميل…</string>
 
