@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Recipes.iml" filepath="$PROJECT_DIR$/Recipes.iml" />
       <module fileurl="file://D:\Recipes2\Recipes.iml" filepath="D:\Recipes2\Recipes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Recipes2.iml" filepath="$PROJECT_DIR$/Recipes2.iml" />
+      <module fileurl="file://C:\Users\BIDA\AndroidStudioProjects\Recipes\Recipes2.iml" filepath="C:\Users\BIDA\AndroidStudioProjects\Recipes\Recipes2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -25,11 +25,11 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/home_butt"
-            android:backgroundTint="#000"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:paddingTop="25dp"
             android:text="الوصفات"
             android:textAllCaps="false"
-            android:textColor="#000"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="9dp" />
 
         <Button

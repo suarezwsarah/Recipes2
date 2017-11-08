@@ -239,7 +239,7 @@ public class Home extends AppCompatActivity {
         // Init AdMob banner
         AdView mAdView = (AdView) findViewById(R.id.admobBanner);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+       // mAdView.loadAd(adRequest);
 
     }// end onCreate()
 

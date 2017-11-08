@@ -40,11 +40,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="60dp"
             android:background="@drawable/shopping_butt"
-            android:backgroundTint="#000"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:paddingTop="25dp"
             android:text="المشتريات"
             android:textAllCaps="false"
-            android:textColor="#000"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="10dp"/>
 
         <Button

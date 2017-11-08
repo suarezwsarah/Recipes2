@@ -82,14 +82,13 @@
             android:textColor="#333"
             android:textSize="12sp"/>
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/loginback"
             android:orientation="vertical"
+            android:layout_centerInParent="true"
             android:layoutDirection="rtl">
 
 
@@ -122,6 +121,7 @@
         android:layout_above="@+id/admobBanner"
         android:layout_below="@+id/relativeLayout"
         android:layoutDirection="rtl"
+
         >
 
 
@@ -306,13 +306,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="60dp"
             android:background="@drawable/account_butt"
-            android:backgroundTint="#555"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:paddingTop="25dp"
             android:text="الحساب"
             android:textAllCaps="false"
-            android:textColor="#555"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="9dp" />
     </LinearLayout>
-
-
 </RelativeLayout>
