@@ -93,7 +93,7 @@ public class OtherUserProfile extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
 
 
@@ -120,12 +120,12 @@ public class OtherUserProfile extends AppCompatActivity {
                   final EditText editTxt = new EditText(OtherUserProfile.this);
                   editTxt.setHint("");
 
-                  alert.setMessage("Briefly explain us the reason why you're reporting this User")
+                  alert.setMessage("اشرح لنا بإيجاز سبب الإبلاغ عن هذا المستخدم")
                       .setView(editTxt)
                           .setTitle(R.string.app_name)
-                              .setIcon(R.drawable.logo)
-                              .setNegativeButton("Cancel", null)
-                              .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                              .setIcon(R.drawable.splashlogo)
+                              .setNegativeButton("إلغاء", null)
+                              .setPositiveButton("أوكي", new DialogInterface.OnClickListener() {
                               @Override
                               public void onClick(DialogInterface dialog, int which) {
 
@@ -159,14 +159,14 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
                                               AlertDialog.Builder alert = new AlertDialog.Builder(OtherUserProfile.this);
-                                              alert.setMessage("Thanks for reporting " + otherUserObj.getString(Configs.USER_FULLNAME) + ". We'll check it out within 24h.")
+                                              alert.setMessage("شكرا على الإبلاغ " + otherUserObj.getString(Configs.USER_FULLNAME) + ". سنقوم التحقق من ذلك في غضون 24h.")
                                               .setTitle(R.string.app_name)
-                                              .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                              .setPositiveButton("أوكي", new DialogInterface.OnClickListener() {
                                                   @Override
                                                   public void onClick(DialogInterface dialog, int which) {
                                                       finish();
                                               }})
-                                              .setIcon(R.drawable.logo);
+                                              .setIcon(R.drawable.splashlogo);
                                               alert.create().show();
 
 
@@ -215,7 +215,7 @@ public class OtherUserProfile extends AppCompatActivity {
     void showUserDetails() {
         // Set title
         titleTxt.setText(otherUserObj.getString(Configs.USER_FULLNAME));
-        titleTxt.setTypeface(Configs.typeWriter);
+       // titleTxt.setTypeface(Configs.typeWriter);
 
         // Get avatar
         ParseFile fileObject = otherUserObj.getParseFile(Configs.USER_AVATAR);
@@ -234,7 +234,7 @@ public class OtherUserProfile extends AppCompatActivity {
         if (otherUserObj.getString(Configs.USER_ABOUTME) != null) { aboutUserTxt.setText(otherUserObj.getString(Configs.USER_ABOUTME));
         } else { aboutUserTxt.setText("N/D"); }
 
-        userRecipesTxt.setText(otherUserObj.getString(Configs.USER_FULLNAME) + " bnina");
+        userRecipesTxt.setText(otherUserObj.getString(Configs.USER_FULLNAME) + " وصفة");
 
 
         // Call query
@@ -248,7 +248,7 @@ public class OtherUserProfile extends AppCompatActivity {
 
     // MARK: - QUERY USER RECIPES ---------------------------------------------------------------
     void queryUserRecipes() {
-        pd.setMessage("Please wait...");
+        pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
         ParseQuery query = new ParseQuery(Configs.RECIPES_CLASS_NAME);
@@ -386,10 +386,10 @@ public class OtherUserProfile extends AppCompatActivity {
                                                                     @Override
                                                                     public void done(ParseException e) {
                                                                         if (e == null) {
-                                                                            Configs.simpleAlert("You've liked this recipe and saved into your Account!", OtherUserProfile.this);
+                                                                            Configs.simpleAlert("لقد أحببت هذه الوصفة وحفظها في حسابك!", OtherUserProfile.this);
 
                                                                             // Send push notification
-                                                                            final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " liked your recipe: " + rObj.getString(Configs.RECIPES_TITLE);
+                                                                            final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + rObj.getString(Configs.RECIPES_TITLE);
 
                                                                             HashMap<String, Object> params = new HashMap<String, Object>();
                                                                             params.put("someKey", userPointer.getObjectId());
@@ -433,7 +433,7 @@ public class OtherUserProfile extends AppCompatActivity {
                                                                     @Override
                                                                     public void done(ParseException e) {
                                                                         if (e == null) {
-                                                                            Configs.simpleAlert("You've unliked this recipe", OtherUserProfile.this);
+                                                                            Configs.simpleAlert("لقد ألغيت هذه الوصفة", OtherUserProfile.this);
                                                                         }}});
                                                             }
 
@@ -449,15 +449,15 @@ public class OtherUserProfile extends AppCompatActivity {
                                             // USER IS NOT LOGGED IN/REGISTERED
                                             } else {
                                                 AlertDialog.Builder alert = new AlertDialog.Builder(OtherUserProfile.this);
-                                                alert.setMessage("You must login/sign up to like a recipe!")
+                                                alert.setMessage("يجب عليك تسجيل الدخول / التسجيل للإعجاب بوصفة!")
                                                         .setTitle(R.string.app_name)
-                                                        .setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                                                        .setPositiveButton("الدخول", new DialogInterface.OnClickListener() {
                                                             @Override
                                                             public void onClick(DialogInterface dialog, int which) {
                                                                 startActivity(new Intent(OtherUserProfile.this, Login.class));
                                                             }})
-                                                        .setNegativeButton("Cancel", null)
-                                                        .setIcon(R.drawable.logo);
+                                                        .setNegativeButton("إلغاء", null)
+                                                        .setIcon(R.drawable.splashlogo);
                                                 alert.create().show();
                                             }
 

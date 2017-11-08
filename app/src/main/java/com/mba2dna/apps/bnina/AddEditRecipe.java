@@ -99,13 +99,13 @@ public class AddEditRecipe extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
 
 
         // Init views
         topbarTitleTxt = (TextView)findViewById(R.id.aerTopBarTitleTxt);
-        topbarTitleTxt.setTypeface(Configs.typeWriter);
+       // topbarTitleTxt.setTypeface(Configs.typeWriter);
         titleTxt = (EditText)findViewById(R.id.aerTitleTxt);
         storyTxt = (EditText)findViewById(R.id.aerStoryTxt);
         cookingTxt = (EditText)findViewById(R.id.aerCookingTxt);
@@ -138,7 +138,7 @@ public class AddEditRecipe extends AppCompatActivity {
             recipeObj = ParseObject.createWithoutData(Configs.RECIPES_CLASS_NAME, objectID);
             try { recipeObj.fetchIfNeeded().getParseObject(Configs.RECIPES_CLASS_NAME);
 
-                topbarTitleTxt.setText("EDIT RECIPE");
+                topbarTitleTxt.setText(" تغيير الوصفة");
                 deleteButt.setVisibility(View.VISIBLE);
 
                 // Call query
@@ -150,7 +150,7 @@ public class AddEditRecipe extends AppCompatActivity {
         // THIS IS A NEW RECIPE -------
         } else {
             recipeObj = new ParseObject(Configs.RECIPES_CLASS_NAME);
-            topbarTitleTxt.setText("ADD RECIPE");
+            topbarTitleTxt.setText("إضافة وصفة");
             deleteButt.setVisibility(View.INVISIBLE);
         }
 
@@ -200,11 +200,11 @@ public class AddEditRecipe extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alert  = new AlertDialog.Builder(AddEditRecipe.this);
-                alert.setTitle("SELECT SOURCE")
-                        .setIcon(R.drawable.logo)
+                alert.setTitle("إختر المصدر")
+                        .setIcon(R.drawable.splashlogo)
                         .setItems(new CharSequence[] {
-                                        "Take a picture",
-                                        "Pick from Gallery" },
+                                        "التقاط صورة",
+                                        "اختر من الهاتف" },
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         switch (which) {
@@ -226,7 +226,7 @@ public class AddEditRecipe extends AppCompatActivity {
                                                 }
                                                 break;
                                 }}})
-                        .setNegativeButton("Cancel", null);
+                        .setNegativeButton("إلغاء", null);
                 alert.create().show();
         }});
 
@@ -256,14 +256,14 @@ public class AddEditRecipe extends AppCompatActivity {
                       preparationTxt.getText().toString().matches("") ||
                       coverImage.getDrawable() == null
                   ) {
-                    Configs.simpleAlert("You must fill the fields and add a cover image!", AddEditRecipe.this);
+                    Configs.simpleAlert("يجب ملء الحقول وإضافة صورة الغلاف!", AddEditRecipe.this);
 
 
 
               // YOU CAN SAVE AND SUBMIT YOUR RECIPE ----------------
               } else {
 
-                  pd.setMessage("Please wait...");
+                  pd.setMessage("يرجى الإنتضار...");
                   pd.show();
                   dismissKeyboard();
 
@@ -315,10 +315,10 @@ public class AddEditRecipe extends AppCompatActivity {
                               pd.dismiss();
 
                               AlertDialog.Builder alert = new AlertDialog.Builder(AddEditRecipe.this);
-                              alert.setMessage("You've successfully submitted your recipe!")
+                              alert.setMessage("لقد أرسلت الوصفة بنجاح!")
                                       .setTitle(R.string.app_name)
-                                      .setIcon(R.drawable.logo)
-                                      .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                      .setIcon(R.drawable.splashlogo)
+                                      .setPositiveButton("أوكي", new DialogInterface.OnClickListener() {
                                           @Override
                                           public void onClick(DialogInterface dialog, int which) {
                                               finish();
@@ -387,11 +387,11 @@ public class AddEditRecipe extends AppCompatActivity {
 
         // Set difficulty button
         difficultyStr = recipeObj.getString(Configs.RECIPES_DIFFICULTY);
-        if (difficultyStr.matches("easy")) {
+        if (difficultyStr.matches("سهل")) {
             easyButt.setBackgroundResource(R.color.yellow_color);
-        } else if (difficultyStr.matches("medium")) {
+        } else if (difficultyStr.matches("متوسط")) {
             mediumButt.setBackgroundResource(R.color.yellow_color);
-        } else if (difficultyStr.matches("hard")) {
+        } else if (difficultyStr.matches("صعب")) {
             hardButt.setBackgroundResource(R.color.yellow_color);
         }
 
@@ -420,9 +420,9 @@ public class AddEditRecipe extends AppCompatActivity {
           public void onClick(View view) {
 
               AlertDialog.Builder alert = new AlertDialog.Builder(AddEditRecipe.this);
-              alert.setMessage("Are you sure you want to delete this recipe?")
+              alert.setMessage("هل تريد بالتأكيد حذف هذه الوصفة؟")
                   .setTitle(R.string.app_name)
-                  .setPositiveButton("delete", new DialogInterface.OnClickListener() {
+                  .setPositiveButton("حذف", new DialogInterface.OnClickListener() {
                       @Override
                       public void onClick(DialogInterface dialog, int which) {
 
@@ -448,14 +448,14 @@ public class AddEditRecipe extends AppCompatActivity {
                                           public void done(ParseException e) {
 
                                               AlertDialog.Builder alert = new AlertDialog.Builder(AddEditRecipe.this);
-                                              alert.setMessage("Your recipe has been deleted!")
+                                              alert.setMessage("تم حذف الوصفة!")
                                                       .setTitle(R.string.app_name)
-                                                      .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                      .setPositiveButton("أوكي", new DialogInterface.OnClickListener() {
                                                           @Override
                                                           public void onClick(DialogInterface dialog, int which) {
                                                               finish();
                                                           }})
-                                                      .setIcon(R.drawable.logo);
+                                                      .setIcon(R.drawable.splashlogo);
                                               alert.create().show();
                                       }});
 
@@ -466,8 +466,8 @@ public class AddEditRecipe extends AppCompatActivity {
                           }}});
 
                   }})
-                  .setNegativeButton("Cancel", null)
-                  .setIcon(R.drawable.logo);
+                  .setNegativeButton("إلغاء", null)
+                  .setIcon(R.drawable.splashlogo);
               alert.create().show();
 
          }});// end deleteButt
@@ -560,7 +560,7 @@ public class AddEditRecipe extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), GALLERY);
+        startActivityForResult(Intent.createChooser(intent, "حدد الصورة"), GALLERY);
     }
 
 

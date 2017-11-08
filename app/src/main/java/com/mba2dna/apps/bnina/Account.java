@@ -133,7 +133,7 @@ public class Account extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
 
         // Init views
@@ -205,12 +205,12 @@ public class Account extends AppCompatActivity {
           @Override
           public void onClick(View view) {
               AlertDialog.Builder alert = new AlertDialog.Builder(Account.this);
-              alert.setMessage("Are you sure you want to logout?")
+              alert.setMessage("هل تريد بالتأكيد تسجيل الخروج؟")
                       .setTitle(R.string.app_name)
-                      .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                      .setPositiveButton("خروج", new DialogInterface.OnClickListener() {
                           @Override
                           public void onClick(DialogInterface dialogInterface, int i) {
-                              pd.setMessage("Logging out...");
+                              pd.setMessage("تسجيل الخروج...");
                               pd.show();
 
                               ParseUser.logOutInBackground(new LogOutCallback() {
@@ -222,8 +222,8 @@ public class Account extends AppCompatActivity {
                                       mainLayout.setVisibility(View.INVISIBLE);
                                   }});
                           }})
-                      .setNegativeButton("Cancel", null)
-                      .setIcon(R.drawable.logo);
+                      .setNegativeButton("إلغاء", null)
+                      .setIcon(R.drawable.splashlogo);
               alert.create().show();
          }});
 
@@ -238,7 +238,7 @@ public class Account extends AppCompatActivity {
               if (ParseUser.getCurrentUser().getUsername() != null) {
                   startActivity(new Intent(Account.this, AddEditRecipe.class));
               } else {
-                  Configs.simpleAlert("You must login/sign up to add a Recipe!", Account.this);
+                  Configs.simpleAlert("يجب عليك تسجيل الدخول / الاشتراك لإضافة وصفة!", Account.this);
               }
         }});
 
@@ -306,7 +306,7 @@ public class Account extends AppCompatActivity {
         likedRecipesRB.setChecked(false);
 
 
-        pd.setMessage("Please wait...");
+        pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
         ParseUser currUser = ParseUser.getCurrentUser();
@@ -397,7 +397,7 @@ public class Account extends AppCompatActivity {
         likedRecipesGridView.setVisibility(View.VISIBLE);
         myRecipesListView.setVisibility(View.INVISIBLE);
 
-        pd.setMessage("Please wait...");
+        pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
         ParseUser currUser = ParseUser.getCurrentUser();
@@ -520,7 +520,7 @@ public class Account extends AppCompatActivity {
                                                                 i.putExtras(extras);
                                                                 startActivity(i);
                                                             } else {
-                                                                Configs.simpleAlert("This User has been reported!", Account.this);
+                                                                Configs.simpleAlert("تم الإبلاغ عن هذا المستخدم!", Account.this);
                                                     }}});
 
 
@@ -544,7 +544,7 @@ public class Account extends AppCompatActivity {
                                                                 @Override
                                                                 public void done(ParseException e) {
                                                                     if (e == null) {
-                                                                        Configs.simpleAlert("You've unliked this recipe", Account.this);
+                                                                        Configs.simpleAlert("لقد ألغيت هذه الوصفة", Account.this);
                                                                         likedRecipesArray.remove(position);
                                                                         likedRecipesGridView.invalidateViews();
                                                                         likedRecipesGridView.refreshDrawableState();
@@ -571,7 +571,7 @@ public class Account extends AppCompatActivity {
                                         coverImg.setImageBitmap(null);
                                         coverImg.setBackgroundColor(Color.parseColor("#555555"));
                                         ImageView avatarImg = (ImageView) finalCell.findViewById(R.id.crAvatarImg);
-                                        avatarImg.setImageResource(R.drawable.logo);
+                                        avatarImg.setImageResource(R.drawable.splashlogo);
                                         avatarImg.setEnabled(false);
                                         Button unlikeButt = (Button) finalCell.findViewById(R.id.crLikeButt);
                                         unlikeButt.setEnabled(false);

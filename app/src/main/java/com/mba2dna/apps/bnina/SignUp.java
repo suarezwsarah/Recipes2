@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
         // Init a ProgressDialog
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
-        pd.setMessage("Signing Up...");
+        pd.setMessage("الاشتراك...");
         pd.setIndeterminate(false);
 
         // Init views
@@ -71,11 +71,11 @@ public class SignUp extends AppCompatActivity {
 
                 if (usernameTxt.getText().toString().matches("") || passwordTxt.getText().toString().matches("") || fullnameTxt.getText().toString().matches("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
-                    builder.setMessage("You must fill all the fields to Sign Up!")
+                    builder.setMessage("يجب ملء الحقول للتسجيل!\n")
                             .setTitle(R.string.app_name)
-                            .setPositiveButton("OK", null);
+                            .setPositiveButton("أوكي", null);
                     AlertDialog dialog = builder.create();
-                    dialog.setIcon(R.drawable.logo);
+                    dialog.setIcon(R.drawable.splashlogo);
                     dialog.show();
 
 

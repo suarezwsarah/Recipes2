@@ -39,16 +39,7 @@ public class Configs extends Application {
 
     // FOOD CATEGORIES ARRAY (editable)
     public static String[] categoriesArray = new String[] {
-            "Appetizer",
-            "Breakfast",
-            "Healthy",
-            "Holidays & Events",
-            "Main Dish",
-            "Seafood",
-            "Vegetarian",
-            "Salad",
-            "Desserts",
-            "Beverage",
+            "المقبلات","الإفطار","صحية","العطلات والأحداث","الطبق الرئيسي","المأكولات البحرية","نباتي","سلطة", "الحلويات", "المشروبات",
 
             // You can add categories here...
             // IMPORTANT: Also remember to add the proper images into the 'drawable'  folder.
@@ -148,7 +139,7 @@ public class Configs extends Application {
                 .build());
         // Tnit font
         // (the font files are into app/src/main/assets/font folder)
-        typeWriter = Typeface.createFromAsset(getAssets(),"font/AmericanTypewriter.ttc");
+        //typeWriter = Typeface.createFromAsset(getAssets(),"font/AmericanTypewriter.ttc");
 
 
     }// end onCreate()
@@ -160,8 +151,8 @@ public class Configs extends Application {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setMessage(mess)
                 .setTitle(R.string.app_name)
-                .setPositiveButton("OK", null)
-                .setIcon(R.drawable.logo);
+                .setPositiveButton("أوكي", null)
+                .setIcon(R.drawable.splashlogo);
         alert.create().show();
     }
 

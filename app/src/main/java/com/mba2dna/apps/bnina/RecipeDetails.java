@@ -106,7 +106,7 @@ public class RecipeDetails extends AppCompatActivity {
         addToShoppingButt = (Button) findViewById(R.id.rdAddToShoppingButt);
 
         titleTxt = (TextView)findViewById(R.id.rdTitleTxt);
-        titleTxt.setTypeface(Configs.typeWriter);
+        //titleTxt.setTypeface(Configs.typeWriter);
         recipeTitleTxt = (TextView)findViewById(R.id.rdRecipeTitleTxt);
         categoryTxt = (TextView)findViewById(R.id.rdCategoryTxt);
         difficultyTxt = (TextView)findViewById(R.id.rdDifficultyTxt);
@@ -152,8 +152,8 @@ public class RecipeDetails extends AppCompatActivity {
                       Intent intent = new Intent(Intent.ACTION_SEND);
                       intent.setType("image/jpeg");
                       intent.putExtra(Intent.EXTRA_STREAM, uri);
-                      intent.putExtra(Intent.EXTRA_TEXT, "I love this Recipe: " + recipeObj.getString(Configs.RECIPES_TITLE) + ", found on #" + getString(R.string.app_name));
-                      startActivity(Intent.createChooser(intent, "Share on..."));
+                      intent.putExtra(Intent.EXTRA_TEXT, "أنا أحب هذه الوصفة: " + recipeObj.getString(Configs.RECIPES_TITLE) + ", يمكن إيجادها على #" + getString(R.string.app_name));
+                      startActivity(Intent.createChooser(intent, "مشاركة على..."));
                   }
              }});
 
@@ -194,8 +194,8 @@ public class RecipeDetails extends AppCompatActivity {
                 if (e == null) {
 
                     // Get User's details
-                    if (userPointer.getString(Configs.USER_JOB) != null) { userFullNameTxt.setText("Made by: " + userPointer.getString(Configs.USER_FULLNAME) + ", " + userPointer.getString(Configs.USER_JOB));
-                    } else { userFullNameTxt.setText("Made by: " + userPointer.getString(Configs.USER_FULLNAME)); }
+                    if (userPointer.getString(Configs.USER_JOB) != null) { userFullNameTxt.setText("أعدت من طرف: " + userPointer.getString(Configs.USER_FULLNAME) + ", " + userPointer.getString(Configs.USER_JOB));
+                    } else { userFullNameTxt.setText("أعدت من طرف: " + userPointer.getString(Configs.USER_FULLNAME)); }
 
                     // Get avatar image
                     ParseFile fileObject2 = userPointer.getParseFile(Configs.USER_AVATAR);
@@ -246,11 +246,11 @@ public class RecipeDetails extends AppCompatActivity {
                         commentsTxt.setText(AppEventsConstants.EVENT_PARAM_VALUE_NO);
                     }
                     aboutReceipeTxt.setText(recipeObj.getString(Configs.RECIPES_ABOUT));
-                    difficultyTxt.setText("Difficulty: " + recipeObj.getString(Configs.RECIPES_DIFFICULTY));
+                    difficultyTxt.setText("صعوبة: " + recipeObj.getString(Configs.RECIPES_DIFFICULTY));
 
-                    cookingTxt.setText("Cooking:\n" + recipeObj.getString(Configs.RECIPES_COOKING));
-                    bakingTxt.setText("Baking:\n" + recipeObj.getString(Configs.RECIPES_BAKING));
-                    restingTxt.setText("Resting:\n" + recipeObj.getString(Configs.RECIPES_RESTING));
+                    cookingTxt.setText("الإعداد:\n" + recipeObj.getString(Configs.RECIPES_COOKING));
+                    bakingTxt.setText("الطهو:\n" + recipeObj.getString(Configs.RECIPES_BAKING));
+                    restingTxt.setText("الاستراحة:\n" + recipeObj.getString(Configs.RECIPES_RESTING));
 
 
                     // Get Recipe video
@@ -270,8 +270,8 @@ public class RecipeDetails extends AppCompatActivity {
                     if (recipeObj.getString(Configs.RECIPES_VIDEO_TITLE) != null ) {
                         if (!recipeObj.getString(Configs.RECIPES_VIDEO_TITLE).matches("")) {
                             videoTitleTxt.setText(recipeObj.getString(Configs.RECIPES_VIDEO_TITLE));
-                        } else { videoTitleTxt.setText("No video Available"); }
-                    } else { videoTitleTxt.setText("No video Available"); }
+                        } else { videoTitleTxt.setText("لا يتوفر فيديو"); }
+                    } else { videoTitleTxt.setText("لا يتوفر فيديو"); }
 
 
                     // Get Ingredients and make an array (for your Shopping List)
@@ -299,7 +299,7 @@ public class RecipeDetails extends AppCompatActivity {
                           Log.i("log-", "SHOPPING STRING: \n" + Configs.shoppingString);
 
 
-                          Configs.simpleAlert("These ingredients have been saved into your Shopping List!", RecipeDetails.this);
+                          Configs.simpleAlert("هذه المكونات  تم حفضها في قائمة التسوق الخاصة بك!", RecipeDetails.this);
                     }});
 
 
@@ -343,10 +343,10 @@ public class RecipeDetails extends AppCompatActivity {
                                                   @Override
                                                   public void done(ParseException e) {
                                                       if (e == null) {
-                                                          Configs.simpleAlert("You've liked this recipe and saved into your Account!", RecipeDetails.this);
+                                                          Configs.simpleAlert("لقد أحببت هذه الوصفة وحفظها في حسابك!", RecipeDetails.this);
 
                                                           // Send push notification
-                                                          final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " liked your recipe: " + recipeObj.getString(Configs.RECIPES_TITLE);
+                                                          final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + recipeObj.getString(Configs.RECIPES_TITLE);
 
                                                           HashMap<String, Object> params = new HashMap<String, Object>();
                                                           params.put("someKey", userPointer.getObjectId());
@@ -388,7 +388,7 @@ public class RecipeDetails extends AppCompatActivity {
                                                   @Override
                                                   public void done(ParseException e) {
                                                       if (e == null) {
-                                                          Configs.simpleAlert("You've unliked this recipe", RecipeDetails.this);
+                                                          Configs.simpleAlert("لقد ألغيت هذه الوصفة", RecipeDetails.this);
                                               }}});
                                           }
 
@@ -404,15 +404,15 @@ public class RecipeDetails extends AppCompatActivity {
                           // USER IS NOT LOGGED IN/REGISTERED
                           } else {
                               AlertDialog.Builder alert = new AlertDialog.Builder(RecipeDetails.this);
-                              alert.setMessage("You must login/sign up to like a recipe!")
+                              alert.setMessage("يجب عليك تسجيل الدخول / التسجيل للإعجاب بوصفة!")
                                       .setTitle(R.string.app_name)
                                       .setPositiveButton("Login", new DialogInterface.OnClickListener() {
                                           @Override
                                           public void onClick(DialogInterface dialog, int which) {
                                               startActivity(new Intent(RecipeDetails.this, Login.class));
                                       }})
-                                      .setNegativeButton("Cancel", null)
-                                      .setIcon(R.drawable.logo);
+                                      .setNegativeButton("إلغاء", null)
+                                      .setIcon(R.drawable.splashlogo);
                               alert.create().show();
                           }
 
@@ -440,15 +440,15 @@ public class RecipeDetails extends AppCompatActivity {
                                 // USER IS NOT LOGGED IN/REGISTERED
 
                                 AlertDialog.Builder alert = new AlertDialog.Builder(RecipeDetails.this);
-                                alert.setMessage("You must login/sign up to comment a recipe!")
+                                alert.setMessage("يجب عليك تسجيل الدخول / التسجيل للتعليق على وصفة!")
                                         .setTitle(R.string.app_name)
-                                        .setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                                        .setPositiveButton("الدخول", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 startActivity(new Intent(RecipeDetails.this, Login.class));
                                             }})
-                                        .setNegativeButton("Cancel", null)
-                                        .setIcon(R.drawable.logo);
+                                        .setNegativeButton("إلغاء", null)
+                                        .setIcon(R.drawable.splashlogo);
                                 alert.create().show();
 
 
@@ -464,12 +464,12 @@ public class RecipeDetails extends AppCompatActivity {
 
                           AlertDialog.Builder alert = new AlertDialog.Builder(RecipeDetails.this);
                           final EditText editTxt = new EditText(RecipeDetails.this);
-                          editTxt.setHint(" type here...");
-                          alert.setMessage("Tell us briefly why you're reporting this Recipe")
+                          editTxt.setHint(" اكتب هنا...");
+                          alert.setMessage("أخبرنا بإيجاز عن سبب الإبلاغ عن هذه الوصفة")
                                   .setView(editTxt)
                                   .setTitle(R.string.app_name)
-                                  .setIcon(R.drawable.logo)
-                                  .setPositiveButton("Report", new DialogInterface.OnClickListener() {
+                                  .setIcon(R.drawable.splashlogo)
+                                  .setPositiveButton("تبليغ", new DialogInterface.OnClickListener() {
                                       @Override
                                       public void onClick(DialogInterface dialog, int which) {
                                           String textStr = editTxt.getText().toString();
@@ -481,18 +481,19 @@ public class RecipeDetails extends AppCompatActivity {
                                               public void done(ParseException e) {
 
                                                   AlertDialog.Builder alert = new AlertDialog.Builder(RecipeDetails.this);
-                                                  alert.setMessage("Thanks for reporting this recipe!.\nWe'll check it out within 24h. Go back and hit the Refresh button")
+                                                  alert.setMessage("شكرا على الإبلاغ عن هذه الوصفة!.\n" +
+                                                          "سنقوم التحقق من ذلك في غضون 24h. العودة والضغط على زر تحديث")
                                                       .setTitle(R.string.app_name)
-                                                      .setPositiveButton("Go back", new DialogInterface.OnClickListener() {
+                                                      .setPositiveButton("العودة", new DialogInterface.OnClickListener() {
                                                           @Override
                                                           public void onClick(DialogInterface dialog, int which) {
                                                               finish();
                                                       }})
-                                                      .setIcon(R.drawable.logo);
+                                                      .setIcon(R.drawable.splashlogo);
                                                   alert.create().show();
                                           }});
                                   }})
-                                  .setNegativeButton("Cancel", null);
+                                  .setNegativeButton("إلغاء", null);
                           alert.create().show();
 
 

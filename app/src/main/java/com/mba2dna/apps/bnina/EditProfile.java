@@ -77,12 +77,12 @@ public class EditProfile extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
 
         // Init views
         TextView titleTxt = (TextView)findViewById(R.id.epTitleTxt);
-        titleTxt.setTypeface(Configs.typeWriter);
+       // titleTxt.setTypeface(Configs.typeWriter);
         fullnameTxt = (EditText) findViewById(R.id.epFullnameTxt);
         occupationTxt = (EditText) findViewById(R.id.epOccupationTxt);
         aboutTxt = (EditText) findViewById(R.id.epAboutTxt);
@@ -138,11 +138,11 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
         AlertDialog.Builder alert  = new AlertDialog.Builder(EditProfile.this);
-        alert.setTitle("SELECT SOURCE")
-                .setIcon(R.drawable.logo)
+        alert.setTitle("إختر المصدر")
+                .setIcon(R.drawable.splashlogo)
                 .setItems(new CharSequence[] {
-                                "Take a picture",
-                                "Pick from Gallery" },
+                                "التقاط صورة",
+                                "اختر من الهاتف" },
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which) {
@@ -164,7 +164,7 @@ public class EditProfile extends AppCompatActivity {
                                         }
                                         break;
                                 }}})
-                .setNegativeButton("Cancel", null);
+                .setNegativeButton("إلغاء", null);
         alert.create().show();
         }});
 
@@ -177,7 +177,7 @@ public class EditProfile extends AppCompatActivity {
           @Override
           public void onClick(View view) {
                ParseUser currUser = ParseUser.getCurrentUser();
-              pd.setMessage("Please wait...");
+              pd.setMessage("يرجى الإنتضار...");
               pd.show();
 
               if (!fullnameTxt.getText().toString().matches("")) {
@@ -206,7 +206,7 @@ public class EditProfile extends AppCompatActivity {
                           if (error == null) {
                               pd.dismiss();
 
-                              Configs.simpleAlert("Your profile has been updated!", EditProfile.this);
+                              Configs.simpleAlert("تم تحديث ملفك الشخصي!", EditProfile.this);
 
                           // error
                           } else {
@@ -218,7 +218,7 @@ public class EditProfile extends AppCompatActivity {
 
               // FULLNAME IS REQUIRED!
               } else {
-                  Configs.simpleAlert("You full name is required!", EditProfile.this);
+                  Configs.simpleAlert("اسمك الكامل مطلوب!", EditProfile.this);
               }
 
          }});
@@ -250,7 +250,7 @@ public class EditProfile extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), GALLERY);
+        startActivityForResult(Intent.createChooser(intent, "حدد الصورة"), GALLERY);
     }
 
 

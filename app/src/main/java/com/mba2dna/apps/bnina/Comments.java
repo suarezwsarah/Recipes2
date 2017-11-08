@@ -76,7 +76,7 @@ public class Comments extends AppCompatActivity {
                 }
 
                 public void done(final ParseObject recipeUser, ParseException e) {
-                    final String pushMessage = ParseUser.getCurrentUser().getString(Configs.USER_FULLNAME) + " commented your Recipe: " + Comments.this.recipeObj.getString(Configs.RECIPES_TITLE);
+                    final String pushMessage = ParseUser.getCurrentUser().getString(Configs.USER_FULLNAME) + " علق على وصفتك: " + Comments.this.recipeObj.getString(Configs.RECIPES_TITLE);
                     HashMap<String, Object> params = new HashMap();
                     params.put("someKey", recipeUser.getObjectId());
                     params.put(ShareConstants.WEB_DIALOG_PARAM_DATA, pushMessage);
@@ -92,7 +92,7 @@ public class Comments extends AppCompatActivity {
                     ParseObject actObj = new ParseObject(Configs.ACTIVITY_CLASS_NAME);
                     actObj.put(Configs.ACTIVITY_CURRENT_USER, recipeUser);
                     actObj.put(Configs.ACTIVITY_OTHER_USER, ParseUser.getCurrentUser());
-                    actObj.put(Configs.ACTIVITY_TEXT, ParseUser.getCurrentUser().getString(Configs.USER_FULLNAME) + " commented your Recipe: " + Comments.this.recipeObj.getString(Configs.RECIPES_TITLE));
+                    actObj.put(Configs.ACTIVITY_TEXT, ParseUser.getCurrentUser().getString(Configs.USER_FULLNAME) + " علق على وصفتك: " + Comments.this.recipeObj.getString(Configs.RECIPES_TITLE));
                     actObj.saveInBackground(new C07722());
                 }
             }
@@ -118,7 +118,7 @@ public class Comments extends AppCompatActivity {
         }
 
         public void onClick(View view) {
-            Configs.showPD("Please wait...", Comments.this);
+            Configs.showPD("يرجى الإنتضار...", Comments.this);
             ParseObject comObj = new ParseObject(Configs.COMMENTS_CLASS_NAME);
             comObj.put(Configs.COMMENTS_USER_POINTER, ParseUser.getCurrentUser());
             comObj.put(Configs.COMMENTS_RECIPE_POINTER, Comments.this.recipeObj);
@@ -250,7 +250,7 @@ public class Comments extends AppCompatActivity {
     }
 
     void queryComments() {
-        Configs.showPD("Please wait...", this);
+        Configs.showPD("يرجى الإنتضار...", this);
         ParseQuery query = ParseQuery.getQuery(Configs.COMMENTS_CLASS_NAME);
         query.whereEqualTo(Configs.COMMENTS_RECIPE_POINTER, recipeObj);
         query.orderByDescending(Configs.RECIPES_CREATED_AT);

@@ -134,12 +134,12 @@ public class Home extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
 
         // Init views
         TextView titleTxt = (TextView) findViewById(R.id.hTitleTxt);
-        titleTxt.setTypeface(Configs.typeWriter);
+       // titleTxt.setTypeface(Configs.typeWriter);
         searchTxt = (EditText) findViewById(R.id.hSearchTxt);
         searchLayout = (LinearLayout) findViewById(R.id.hSearchLayout);
 
@@ -247,7 +247,7 @@ public class Home extends AppCompatActivity {
 
     // MARK: - QUERY RECIPES ------------------------------------------------------------------
     void queryRecipes(String searchText) {
-        pd.setMessage("Please wait...");
+        pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
 
@@ -380,9 +380,9 @@ public class Home extends AppCompatActivity {
                                     // Get Fullname
                                     TextView fnTxt = (TextView) finalCell.findViewById(R.id.crFullnameTxt);
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                        fnTxt.setText(Html.fromHtml(userPointer.getString(Configs.USER_FULLNAME) + " is making <b><font color='#ed3851'>" + rObj.getString(Configs.RECIPES_TITLE) + "</font></b> in his house", 1));
+                                        fnTxt.setText(Html.fromHtml(userPointer.getString(Configs.USER_FULLNAME) + " يعد <b><font color='#ed3851'>" + rObj.getString(Configs.RECIPES_TITLE) + "</font></b> في منزله", 1));
                                     } else {
-                                        fnTxt.setText(Html.fromHtml(userPointer.getString(Configs.USER_FULLNAME) + " is making <b><font color='#ed3851'>" + rObj.getString(Configs.RECIPES_TITLE) + "</font></b> in his house"));
+                                        fnTxt.setText(Html.fromHtml(userPointer.getString(Configs.USER_FULLNAME) + " يعد <b><font color='#ed3851'>" + rObj.getString(Configs.RECIPES_TITLE) + "</font></b> في منزله"));
                                     }
 
 
@@ -397,7 +397,7 @@ public class Home extends AppCompatActivity {
                                                 i.putExtras(extras);
                                                 startActivity(i);
                                             } else {
-                                                Configs.simpleAlert("This User has been reported!", Home.this);
+                                                Configs.simpleAlert("تم الإبلاغ عن هذا المستخدم!", Home.this);
                                             }
                                         }
                                     });
@@ -438,10 +438,10 @@ public class Home extends AppCompatActivity {
                                                                     @Override
                                                                     public void done(ParseException e) {
                                                                         if (e == null) {
-                                                                            Configs.simpleAlert("You've liked this recipe and saved into your Account!", Home.this);
+                                                                            Configs.simpleAlert("لقد أحببت هذه الوصفة وحفظها في حسابك!", Home.this);
 
                                                                             // Send push notification
-                                                                            final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " liked your recipe: " + rObj.getString(Configs.RECIPES_TITLE);
+                                                                            final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + rObj.getString(Configs.RECIPES_TITLE);
 
                                                                             HashMap<String, Object> params = new HashMap<String, Object>();
                                                                             params.put("someKey", userPointer.getObjectId());
@@ -487,7 +487,7 @@ public class Home extends AppCompatActivity {
                                                                     @Override
                                                                     public void done(ParseException e) {
                                                                         if (e == null) {
-                                                                            Configs.simpleAlert("You've unliked this recipe", Home.this);
+                                                                            Configs.simpleAlert("لقد ألغيت هذه الوصفة", Home.this);
                                                                         }
                                                                     }
                                                                 });
@@ -505,16 +505,16 @@ public class Home extends AppCompatActivity {
                                                 // USER IS NOT LOGGED IN/REGISTERED
                                             } else {
                                                 AlertDialog.Builder alert = new AlertDialog.Builder(Home.this);
-                                                alert.setMessage("You must login/sign up to like a recipe!")
+                                                alert.setMessage("يجب عليك تسجيل الدخول / التسجيل للإعجاب بوصفة!")
                                                         .setTitle(R.string.app_name)
-                                                        .setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                                                        .setPositiveButton("الدخول", new DialogInterface.OnClickListener() {
                                                             @Override
                                                             public void onClick(DialogInterface dialog, int which) {
                                                                 startActivity(new Intent(Home.this, Login.class));
                                                             }
                                                         })
-                                                        .setNegativeButton("Cancel", null)
-                                                        .setIcon(R.drawable.logo);
+                                                        .setNegativeButton("إلغاء", null)
+                                                        .setIcon(R.drawable.splashlogo);
                                                 alert.create().show();
                                             }
 

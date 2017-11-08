@@ -114,7 +114,7 @@ public class Login extends AppCompatActivity {
                  @Override
                  public void onClick(View v) {
                 List<String> permissions = Arrays.asList("public_profile", "email");
-                pd.setMessage("Please wait...");
+                pd.setMessage("يرجى الإنتضار...");
                 pd.show();
 
                 ParseFacebookUtils.logInWithReadPermissionsInBackground(Login.this, permissions, new LogInCallback() {
@@ -200,14 +200,14 @@ public class Login extends AppCompatActivity {
                 public void onClick(View v) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(Login.this);
                     alert.setTitle(R.string.app_name);
-                    alert.setMessage("Type the valid email address you've used to register on this app");
+                    alert.setMessage("اكتب عنوان البريد الإلكتروني الصحيح الذي استخدمته للتسجيل في هذا التطبيق");
 
                     // Add an EditTxt
                     final EditText editTxt = new EditText (Login.this);
                     editTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                     alert.setView(editTxt)
-                            .setNegativeButton("Cancel", null)
-                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("إلغاء", null)
+                            .setPositiveButton("أوكي", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 
                                     // Reset password
@@ -215,11 +215,11 @@ public class Login extends AppCompatActivity {
                                         public void done(ParseException error) {
                                             if (error == null) {
                                                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                                builder.setMessage("We've sent you an email to reset your password!")
+                                                builder.setMessage("لقد أرسلنا إليك رسالة إلكترونية لإعادة تعيين كلمة المرور.")
                                                         .setTitle(R.string.app_name)
-                                                        .setPositiveButton("OK", null);
+                                                        .setPositiveButton("أوكي", null);
                                                 AlertDialog dialog = builder.create();
-                                                dialog.setIcon(R.drawable.logo);
+                                                dialog.setIcon(R.drawable.splashlogo);
                                                 dialog.show();
 
                                             } else {

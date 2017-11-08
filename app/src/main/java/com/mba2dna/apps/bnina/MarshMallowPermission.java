@@ -81,7 +81,7 @@ public class MarshMallowPermission {
     public void requestPermissionForLocation() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION)) {
             // Toast.makeText(activity, "Location permission is needed to search Ads nearby your location. Please enable Location in App Settings.", Toast.LENGTH_LONG).show();
-            Configs.simpleAlert("Location permission is needed to search Ads nearby your location. Please enable Location in App Settings, otherwise you'll get Ads only from New York City.", activity);
+            Configs.simpleAlert("هناك حاجة إلى إذن الموقع للبحث عن الإعلانات القريبة من موقعك. يرجى تمكين الموقع في إعدادات التطبيق، وإلا سوف تحصل على الإعلانات فقط من مدينة نيويورك.\n", activity);
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
@@ -89,7 +89,7 @@ public class MarshMallowPermission {
 
     public void requestPermissionForRecord() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.RECORD_AUDIO)) {
-            Toast.makeText(activity, "Microphone permission needed for recording. Please allow in App Settings for additional functionality.", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "إذن الميكروفون اللازمة للتسجيل. يرجى السماح في إعدادات التطبيق للحصول على وظائف إضافية.", Toast.LENGTH_LONG).show();
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.RECORD_AUDIO}, 2);
         }
@@ -98,7 +98,7 @@ public class MarshMallowPermission {
 
     public void requestPermissionForReadExternalStorage() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            Toast.makeText(activity, "External Storage permission needed. Please allow in App Settings for additional functionality.", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "إذن التخزين الخارجي المطلوبة. يرجى السماح في إعدادات التطبيق للحصول على وظائف إضافية.", Toast.LENGTH_LONG).show();
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
         }
@@ -106,7 +106,7 @@ public class MarshMallowPermission {
 
     public void requestPermissionForWriteExternalStorage() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            Toast.makeText(activity, "External Storage permission is needed. Please allow in App Settings for additional functionality!", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "هناك حاجة إلى إذن التخزين الخارجي. اسمحوا في إعدادات التطبيق للحصول على وظائف إضافية!", Toast.LENGTH_LONG).show();
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
         }
@@ -114,7 +114,7 @@ public class MarshMallowPermission {
 
     public void requestPermissionForCamera() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.CAMERA)) {
-            Toast.makeText(activity, "Camera permission needed. Please allow in App Settings for additional functionality.", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "إذن الكاميرا اللازمة. يرجى السماح في إعدادات التطبيق للحصول على وظائف إضافية.", Toast.LENGTH_LONG).show();
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.CAMERA}, 5);
         }

@@ -84,11 +84,11 @@ public class ActivityScreen extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle(R.string.app_name);
         pd.setIndeterminate(false);
-        pd.setIcon(R.drawable.logo);
+        pd.setIcon(R.drawable.splashlogo);
 
         // Init views
         TextView titleTxt = (TextView)findViewById(R.id.actTitleTxt);
-        titleTxt.setTypeface(Configs.typeWriter);
+       // titleTxt.setTypeface(Configs.typeWriter);
 
 
 
@@ -107,7 +107,7 @@ public class ActivityScreen extends AppCompatActivity {
 
     // MARK: - QUERY ACTIVITY ---------------------------------------------------------------
     void queryActivity() {
-        pd.setMessage("Please wait...");
+        pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
         ParseQuery query = new ParseQuery(Configs.ACTIVITY_CLASS_NAME);
@@ -201,7 +201,7 @@ public class ActivityScreen extends AppCompatActivity {
                                             startActivity(i);
 
                                         } else {
-                                            Configs.simpleAlert("This user has been reported!", ActivityScreen.this);
+                                            Configs.simpleAlert("تم الإبلاغ عن هذا المستخدم!", ActivityScreen.this);
                                         }
 
                             }}});// end userPointer

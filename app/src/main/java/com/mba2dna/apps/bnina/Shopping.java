@@ -75,7 +75,7 @@ public class Shopping extends AppCompatActivity {
 
         // Init views
         TextView titleTxt = (TextView)findViewById(R.id.shopTitleTxt);
-        titleTxt.setTypeface(Configs.typeWriter);
+      //  titleTxt.setTypeface(Configs.typeWriter);
 
 
         // Init TabBar buttons
@@ -104,9 +104,9 @@ public class Shopping extends AppCompatActivity {
           @Override
           public void onClick(View view) {
               AlertDialog.Builder alert = new AlertDialog.Builder(Shopping.this);
-              alert.setMessage("Are you sure you want to clear this List?")
+              alert.setMessage("هل تريد بالتأكيد محو هذه القائمة؟")
                   .setTitle(R.string.app_name)
-                  .setPositiveButton("Clear", new DialogInterface.OnClickListener() {
+                  .setPositiveButton("محو", new DialogInterface.OnClickListener() {
                       @Override
                       public void onClick(DialogInterface dialog, int which) {
                           if (ingredientsArray != null) {
@@ -118,8 +118,8 @@ public class Shopping extends AppCompatActivity {
                               prefs.edit().putString("shoppingString", "").apply();
                           }
                   }})
-                  .setNegativeButton("Cancel", null)
-                  .setIcon(R.drawable.logo);
+                  .setNegativeButton("إلغاء", null)
+                  .setIcon(R.drawable.splashlogo);
               alert.create().show();
 
         }});
@@ -135,8 +135,8 @@ public class Shopping extends AppCompatActivity {
           public void onClick(View view) {
               Intent intent = new Intent(Intent.ACTION_SEND);
               intent.setType("image/jpeg");
-              intent.putExtra(Intent.EXTRA_TEXT, "List of ingredients I need: \n\n" + Configs.shoppingString);
-              startActivity(Intent.createChooser(intent, "Share on..."));
+              intent.putExtra(Intent.EXTRA_TEXT, "قائمة المكونات التي أحتاجها\n: \n\n" + Configs.shoppingString);
+              startActivity(Intent.createChooser(intent, "مشاركة على..."));
          }});
 
 

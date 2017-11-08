@@ -29,7 +29,7 @@ public class TermsOfuse extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // Set Title of the ActionBar
-        getSupportActionBar().setTitle("Terms of Use");
+        getSupportActionBar().setTitle("شروط الاستخدام");
 
 
         // Init webView
