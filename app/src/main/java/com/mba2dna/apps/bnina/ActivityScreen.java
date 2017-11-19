@@ -48,12 +48,12 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class ActivityScreen extends AppCompatActivity {
 
     /* Views */
-    ProgressDialog pd;
+    private ProgressDialog pd;
 
 
 
     /* Variables */
-    List<ParseObject> activityArray;
+    private List<ParseObject> activityArray;
 
 
 
@@ -115,7 +115,7 @@ public class ActivityScreen extends AppCompatActivity {
 
 
     // MARK: - QUERY ACTIVITY ---------------------------------------------------------------
-    void queryActivity() {
+    private void queryActivity() {
         pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
@@ -142,6 +142,7 @@ public class ActivityScreen extends AppCompatActivity {
                         public View getView(int position, View cell, ViewGroup parent) {
                             if (cell == null) {
                                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                assert inflater != null;
                                 cell = inflater.inflate(R.layout.cell_activity, null);
                             }
                             final View finalCell = cell;

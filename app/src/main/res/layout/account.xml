@@ -131,7 +131,8 @@
             android:layout_height="170dp"
             android:layout_alignParentStart="true"
             android:scaleType="centerCrop"
-            ads:srcCompat="@drawable/backgroud"/>
+            ads:srcCompat="@drawable/backgroud"
+            android:contentDescription="TODO" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/epAvatarImg"
@@ -283,7 +284,7 @@
             android:text="الوصفات"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="9dp" />
+            android:textSize="9sp" />
 
         <Button
             android:id="@+id/tab_two"
@@ -297,7 +298,7 @@
             android:text="المشتريات"
             android:textAllCaps="false"
             android:textColor="#555"
-            android:textSize="9dp" />
+            android:textSize="9sp" />
 
         <Button
             android:id="@+id/tab_three"
@@ -311,6 +312,6 @@
             android:text="الحساب"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="9dp" />
+            android:textSize="9sp" />
     </LinearLayout>
 </RelativeLayout>

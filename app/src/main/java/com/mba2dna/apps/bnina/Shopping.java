@@ -34,6 +34,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -41,11 +42,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Shopping extends AppCompatActivity {
 
     /* Views */
-    ListView shoppingListView;
+    private ListView shoppingListView;
 
     /* Variables */
-    List<String> ingredientsArray;
-    SharedPreferences prefs;
+    private List<String> ingredientsArray;
+    private SharedPreferences prefs;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -74,9 +75,9 @@ public class Shopping extends AppCompatActivity {
 
 
         // Make an array of ingredients (to be shown in the shoppingListView)
-        String[] one = Configs.shoppingString.split("\\r?\\n");;
-        ingredientsArray = new ArrayList<String>();
-        for (String w : one) { ingredientsArray.add(w); }
+        String[] one = Configs.shoppingString.split("\\r?\\n");
+        ingredientsArray = new ArrayList<>();
+        Collections.addAll(ingredientsArray, one);
         ingredientsArray.remove(0);
         // Log.i("log-", "INGREDIENTS ARRAY: " + ingredientsArray);
         setupShoppingListView();
@@ -162,7 +163,7 @@ public class Shopping extends AppCompatActivity {
 
 
     // MARK: - SETUP SHOPPING LISTVIEW -------------------------------------------------------
-    void setupShoppingListView() {
+    private void setupShoppingListView() {
         class ListAdapter extends BaseAdapter {
             private Context context;
             public ListAdapter(Context context, List<String> objects) {

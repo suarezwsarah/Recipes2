@@ -51,14 +51,16 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class EditProfile extends AppCompatActivity {
 
     /* Views */
-    ProgressDialog pd;
-    EditText fullnameTxt, occupationTxt, aboutTxt;
-    TextView emailTxt;
+    private ProgressDialog pd;
+    private EditText fullnameTxt;
+    private EditText occupationTxt;
+    private EditText aboutTxt;
+    private TextView emailTxt;
 
 
 
     /* Variables */
-    MarshMallowPermission mmp = new MarshMallowPermission(this);
+    private final MarshMallowPermission mmp = new MarshMallowPermission(this);
 
 
     @Override
@@ -118,7 +120,7 @@ public class EditProfile extends AppCompatActivity {
 
 
     // MARK: - SHOW USER DETAILS ---------------------------------------------------------------
-    void showUserDetails() {
+    private void showUserDetails() {
         ParseUser currUser = ParseUser.getCurrentUser();
 
         fullnameTxt.setText(currUser.getString(Configs.USER_FULLNAME));
@@ -159,6 +161,8 @@ public class EditProfile extends AppCompatActivity {
                                     case 0:
                                         if (!mmp.checkPermissionForCamera()) {
                                             mmp.requestPermissionForCamera();
+                                        }else if (!mmp.checkPermissionForReadExternalStorage()) {
+                                            mmp.requestPermissionForReadExternalStorage();
                                         } else {
                                             openCamera();
                                         }
@@ -240,13 +244,13 @@ public class EditProfile extends AppCompatActivity {
 
 
     // IMAGE HANDLING METHODS ------------------------------------------------------------------------
-    int CAMERA = 0;
-    int GALLERY = 1;
-    Uri imageURI;
+    private final int CAMERA = 0;
+    private final int GALLERY = 1;
+    private Uri imageURI;
 
 
     // OPEN CAMERA
-    public void openCamera() {
+    private void openCamera() {
         Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = new File(Environment.getExternalStorageDirectory(), "image.jpg");
         imageURI = Uri.fromFile(file);
@@ -255,7 +259,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     // OPEN GALLERY
-    public void openGallery() {
+    private void openGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);

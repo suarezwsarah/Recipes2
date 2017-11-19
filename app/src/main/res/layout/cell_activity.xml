@@ -47,6 +47,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/caActivityTxt"
         android:layout_marginTop="2dp"
-        ads:srcCompat="@drawable/discolure_indicator"/>
+        ads:srcCompat="@drawable/discolure_indicator"
+        android:contentDescription="TODO" />
 
 </RelativeLayout>

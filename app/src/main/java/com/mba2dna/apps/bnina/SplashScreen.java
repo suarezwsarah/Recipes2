@@ -21,7 +21,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static int splashInterval = 2000;
+    private static final int splashInterval = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,8 @@ public class SplashScreen extends AppCompatActivity {
             }
         }, splashInterval);
 
-    };
+    }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));

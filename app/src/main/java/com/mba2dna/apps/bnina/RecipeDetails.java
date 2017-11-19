@@ -63,24 +63,36 @@ public class RecipeDetails extends AppCompatActivity {
 
 
     /* Views */
-    ImageView coverImage, avatarImg;
+    private ImageView coverImage;
+    private ImageView avatarImg;
     RelativeLayout recipeLayout;
 
-    TextView titleTxt, recipeTitleTxt, categoryTxt, likesTxt, userFullNameTxt, aboutReceipeTxt,
-            difficultyTxt, cookingTxt, bakingTxt, restingTxt, ingredientsTxt,
-    preparationTxt, videoTitleTxt;
+    private TextView titleTxt;
+    private TextView recipeTitleTxt;
+    private TextView categoryTxt;
+    private TextView likesTxt;
+    private TextView userFullNameTxt;
+    private TextView aboutReceipeTxt;
+    private TextView difficultyTxt;
+    private TextView cookingTxt;
+    private TextView bakingTxt;
+    private TextView restingTxt;
+    private TextView ingredientsTxt;
+    private TextView preparationTxt;
+    private TextView videoTitleTxt;
 
-    WebView videoWebView;
+    private WebView videoWebView;
 
-    Button addToShoppingButt, likeButt;
-    Button commentButt;
-    TextView commentsTxt;
+    private Button addToShoppingButt;
+    private Button likeButt;
+    private Button commentButt;
+    private TextView commentsTxt;
 
 
     /* Variables */
-    ParseObject recipeObj;
-    List<ParseObject>likesArray;
-    MarshMallowPermission mmp = new MarshMallowPermission(this);
+    private ParseObject recipeObj;
+    private List<ParseObject>likesArray;
+    private final MarshMallowPermission mmp = new MarshMallowPermission(this);
 
 
 
@@ -195,7 +207,7 @@ public class RecipeDetails extends AppCompatActivity {
 
 
     // MARK: - SHOW RECIPE DETAILS ---------------------------------------------------------------
-    void showRecipeDetails() {
+    private void showRecipeDetails() {
 
         // Get userPointer
         recipeObj.getParseObject(Configs.RECIPES_USER_POINTER).fetchIfNeededInBackground(new GetCallback<ParseObject>() {
@@ -357,7 +369,7 @@ public class RecipeDetails extends AppCompatActivity {
                                                           // Send push notification
                                                           final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + recipeObj.getString(Configs.RECIPES_TITLE);
 
-                                                          HashMap<String, Object> params = new HashMap<String, Object>();
+                                                          HashMap<String, Object> params = new HashMap<>();
                                                           params.put("someKey", userPointer.getObjectId());
                                                           params.put("data", pushMessage);
 
@@ -519,7 +531,7 @@ public class RecipeDetails extends AppCompatActivity {
 
 
     // Method to get URI of a stored image
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
+    private Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "image", null);

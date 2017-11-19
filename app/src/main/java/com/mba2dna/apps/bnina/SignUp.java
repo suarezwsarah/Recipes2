@@ -55,10 +55,10 @@ public class SignUp extends AppCompatActivity {
     
     /* Views */
 
-    EditText usernameTxt;
-    EditText passwordTxt;
-    EditText fullnameTxt;
-    ProgressDialog pd;
+    private EditText usernameTxt;
+    private EditText passwordTxt;
+    private EditText fullnameTxt;
+    private ProgressDialog pd;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -185,7 +185,7 @@ public class SignUp extends AppCompatActivity {
 
 
     // DISMISS KEYBOARD
-    public void dismisskeyboard() {
+    private void dismisskeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(usernameTxt.getWindowToken(), 0);
         imm.hideSoftInputFromWindow(passwordTxt.getWindowToken(), 0);
@@ -201,7 +201,7 @@ public class SignUp extends AppCompatActivity {
     }
 
 
-    void getUserDetailsFromFB() {
+    private void getUserDetailsFromFB() {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),new GraphRequest.GraphJSONObjectCallback(){
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {

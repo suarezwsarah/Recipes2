@@ -531,7 +531,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="5dp"
                     android:background="@color/yellow_color"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:id="@+id/textView32"

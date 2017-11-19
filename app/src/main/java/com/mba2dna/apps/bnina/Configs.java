@@ -14,6 +14,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,13 +33,13 @@ public class Configs extends Application {
 
 
     // IMPORTANT: Reaplce the red strings below with your own Application ID and Client Key of your app on Parse.com
-    public static String PARSE_APP_ID = "5LgyxLAC1O5wT5mWEwr6F5ceNPb2C92vyxZU7Ri3";
-    public static String PARSE_CLIENT_KEY = "6mErIYXXfYesLNq7To6FRV1sEt0cQTQAMhCVPqKL";
+    private static final String PARSE_APP_ID = "5LgyxLAC1O5wT5mWEwr6F5ceNPb2C92vyxZU7Ri3";
+    private static final String PARSE_CLIENT_KEY = "6mErIYXXfYesLNq7To6FRV1sEt0cQTQAMhCVPqKL";
     //-----------------------------------------------------------------------------
 
 
     // FOOD CATEGORIES ARRAY (editable)
-    public static String[] categoriesArray = new String[] {
+    public static final String[] categoriesArray = new String[] {
             "المقبلات","الإفطار","صحية","العطلات والأحداث","الطبق الرئيسي","المأكولات البحرية","نباتي","سلطة", "الحلويات", "المشروبات",
 
             // You can add categories here...
@@ -60,66 +61,66 @@ public class Configs extends Application {
 
 
     /************** DO NOT EDIT THE CODE BELOW *******************/
-    public static String COMMENTS_CLASS_NAME = "Comments";
-    public static String COMMENTS_COMMENT = "comment";
-    public static String COMMENTS_RECIPE_POINTER = "recipePointer";
-    public static String COMMENTS_USER_POINTER = "userPointer";
-    public static String RECIPES_COMMENTS = "comments";
-    public static String  USER_CLASS_NAME = "_User";
-    public static String  USER_FULLNAME = "fullName";
-    public static String  USER_AVATAR = "avatar";
-    public static String  USER_USERNAME = "username";
-    public static String  USER_EMAIL = "email";
-    public static String  USER_JOB = "job";
-    public static String  USER_ABOUTME = "aboutMe";
-    public static String  USER_IS_REPORTED = "isReported";
+    public static final String COMMENTS_CLASS_NAME = "Comments";
+    public static final String COMMENTS_COMMENT = "comment";
+    public static final String COMMENTS_RECIPE_POINTER = "recipePointer";
+    public static final String COMMENTS_USER_POINTER = "userPointer";
+    public static final String RECIPES_COMMENTS = "comments";
+    public static final String  USER_CLASS_NAME = "_User";
+    public static final String  USER_FULLNAME = "fullName";
+    public static final String  USER_AVATAR = "avatar";
+    public static final String  USER_USERNAME = "username";
+    public static final String  USER_EMAIL = "email";
+    public static final String  USER_JOB = "job";
+    public static final String  USER_ABOUTME = "aboutMe";
+    public static final String  USER_IS_REPORTED = "isReported";
     public static String  USER_REPORT_MESSAGE = "reportMessage";
 
 
-    public static String  LIKES_CLASS_NAME = "Likes";
-    public static String  LIKES_LIKED_BY = "likedBy";
-    public static String  LIKES_RECIPE_LIKED = "recipeLiked";
+    public static final String  LIKES_CLASS_NAME = "Likes";
+    public static final String  LIKES_LIKED_BY = "likedBy";
+    public static final String  LIKES_RECIPE_LIKED = "recipeLiked";
 
 
-    public static String  RECIPES_CLASS_NAME = "Recipes";
-    public static String  RECIPES_COVER = "cover";
-    public static String  RECIPES_TITLE = "title";
-    public static String  RECIPES_TITLE_LOWERCASE = "titleLowercase";
-    public static String  RECIPES_CATEGORY = "category";
-    public static String  RECIPES_LIKES = "likes";
-    public static String  RECIPES_ABOUT = "aboutRecipe";
-    public static String  RECIPES_DIFFICULTY = "difficulty";
-    public static String  RECIPES_COOKING = "cooking";
-    public static String  RECIPES_BAKING = "baking";
-    public static String  RECIPES_RESTING = "resting";
-    public static String  RECIPES_YOUTUBE = "youtube";
-    public static String  RECIPES_VIDEO_TITLE = "videoTitle";
-    public static String  RECIPES_INGREDIENTS = "ingredients";
-    public static String  RECIPES_PREPARATION = "preparation";
-    public static String  RECIPES_USER_POINTER = "userPointer";
-    public static String  RECIPES_IS_REPORTED = "isReported";
-    public static String  RECIPES_REPORT_MESSAGE = "reportMessage";
-    public static String  RECIPES_KEYWORDS = "keywords";
-    public static String  RECIPES_CREATED_AT = "createdAt";
+    public static final String  RECIPES_CLASS_NAME = "Recipes";
+    public static final String  RECIPES_COVER = "cover";
+    public static final String  RECIPES_TITLE = "title";
+    public static final String  RECIPES_TITLE_LOWERCASE = "titleLowercase";
+    public static final String  RECIPES_CATEGORY = "category";
+    public static final String  RECIPES_LIKES = "likes";
+    public static final String  RECIPES_ABOUT = "aboutRecipe";
+    public static final String  RECIPES_DIFFICULTY = "difficulty";
+    public static final String  RECIPES_COOKING = "cooking";
+    public static final String  RECIPES_BAKING = "baking";
+    public static final String  RECIPES_RESTING = "resting";
+    public static final String  RECIPES_YOUTUBE = "youtube";
+    public static final String  RECIPES_VIDEO_TITLE = "videoTitle";
+    public static final String  RECIPES_INGREDIENTS = "ingredients";
+    public static final String  RECIPES_PREPARATION = "preparation";
+    public static final String  RECIPES_USER_POINTER = "userPointer";
+    public static final String  RECIPES_IS_REPORTED = "isReported";
+    public static final String  RECIPES_REPORT_MESSAGE = "reportMessage";
+    public static final String  RECIPES_KEYWORDS = "keywords";
+    public static final String  RECIPES_CREATED_AT = "createdAt";
 
 
-    public static String  ACTIVITY_CLASS_NAME = "Activity";
-    public static String  ACTIVITY_CURRENT_USER = "currentUser";
-    public static String  ACTIVITY_OTHER_USER = "otherUser";
-    public static String  ACTIVITY_TEXT = "text";
+    public static final String  ACTIVITY_CLASS_NAME = "Activity";
+    public static final String  ACTIVITY_CURRENT_USER = "currentUser";
+    public static final String  ACTIVITY_OTHER_USER = "otherUser";
+    public static final String  ACTIVITY_TEXT = "text";
 
 
     public static String categoryStr = "";
     public static String shoppingString;
 
-    public static AlertDialog pd;
+    private static AlertDialog pd;
 
-    boolean isParseInitialized = false;
+    private boolean isParseInitialized = false;
 
     public void onCreate() {
         super.onCreate();
 
-        if (isParseInitialized == false) {
+        if (!isParseInitialized) {
             Parse.initialize(new Parse.Configuration.Builder(this)
                     .applicationId(String.valueOf(PARSE_APP_ID))
                     .clientKey(String.valueOf(PARSE_CLIENT_KEY))
@@ -137,6 +138,8 @@ public class Configs extends Application {
                 .setDefaultFontPath("font/DroidKufiRegular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
         // Tnit font
         // (the font files are into app/src/main/assets/font folder)
         //typeWriter = Typeface.createFromAsset(getAssets(),"font/AmericanTypewriter.ttc");
@@ -161,19 +164,19 @@ public class Configs extends Application {
 
     // MARK: - SCALE BITMAP TO MAX SIZE
     public static Bitmap scaleBitmapToMaxSize(int maxSize, Bitmap bm) {
-            int outWidth;
-            int outHeight;
-            int inWidth = bm.getWidth();
-            int inHeight = bm.getHeight();
-            if(inWidth > inHeight){
-                outWidth = maxSize;
-                outHeight = (inHeight * maxSize) / inWidth;
-            } else {
-                outHeight = maxSize;
-                outWidth = (inWidth * maxSize) / inHeight;
-            }
-            Bitmap resizedBitmap = Bitmap.createScaledBitmap(bm, outWidth, outHeight, false);
-            return resizedBitmap;
+        int outWidth;
+        int outHeight;
+        int inWidth = bm.getWidth();
+        int inHeight = bm.getHeight();
+        if(inWidth > inHeight){
+            outWidth = maxSize;
+            outHeight = (inHeight * maxSize) / inWidth;
+        } else {
+            outHeight = maxSize;
+            outWidth = (inWidth * maxSize) / inHeight;
+        }
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bm, outWidth, outHeight, false);
+        return resizedBitmap;
     }
     public static void showPD(String mess, Context ctx) {
         AlertDialog.Builder db = new AlertDialog.Builder(ctx);

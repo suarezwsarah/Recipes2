@@ -57,21 +57,25 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Account extends AppCompatActivity {
 
     /* Views */
-    ProgressDialog pd;
-    RelativeLayout noUserLayout, mainLayout;
-    ImageView avatarImage;
-    TextView titleTxt, fullNameTxt, aboutMeTxt;
+    private ProgressDialog pd;
+    private RelativeLayout noUserLayout;
+    private RelativeLayout mainLayout;
+    private ImageView avatarImage;
+    private TextView titleTxt;
+    private TextView fullNameTxt;
+    private TextView aboutMeTxt;
 
-    RadioButton myRecipesRB, likedRecipesRB;
+    private RadioButton myRecipesRB;
+    private RadioButton likedRecipesRB;
 
-    ListView myRecipesListView;
-    GridView likedRecipesGridView;
+    private ListView myRecipesListView;
+    private GridView likedRecipesGridView;
 
 
 
     /* Variables */
-    List<ParseObject> myRecipesArray;
-    List<ParseObject>likedRecipesArray;
+    private List<ParseObject> myRecipesArray;
+    private List<ParseObject>likedRecipesArray;
 
 
 
@@ -268,7 +272,7 @@ public class Account extends AppCompatActivity {
         // Init AdMob banner
         AdView mAdView = (AdView) findViewById(R.id.admobBanner);
         AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
 
 
     }// end onCreate()
@@ -281,7 +285,7 @@ public class Account extends AppCompatActivity {
 
 
     // MARK: - SHOW USER DETAILS -----------------------------------------------------------------
-    void showUserDetails() {
+    private void showUserDetails() {
         ParseUser currUser = ParseUser.getCurrentUser();
 
         // Get Avatar
@@ -308,7 +312,7 @@ public class Account extends AppCompatActivity {
 
 
     // MARK: - QUERY MY RECIPES ------------------------------------------------------------------
-    void queryMyRecipes() {
+    private void queryMyRecipes() {
         likedRecipesGridView.setVisibility(View.INVISIBLE);
         myRecipesListView.setVisibility(View.VISIBLE);
         myRecipesRB.setChecked(true);
@@ -343,6 +347,7 @@ public class Account extends AppCompatActivity {
                         public View getView(int position, View cell, ViewGroup parent) {
                             if (cell == null) {
                                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                assert inflater != null;
                                 cell = inflater.inflate(R.layout.cell_my_recipe, null);
                             }
 
@@ -402,7 +407,7 @@ public class Account extends AppCompatActivity {
 
 
     // MARK: - QUERY LIKED RECIPES ----------------------------------------------------------------
-    void queryLikedRecipes() {
+    private void queryLikedRecipes() {
         likedRecipesGridView.setVisibility(View.VISIBLE);
         myRecipesListView.setVisibility(View.INVISIBLE);
 
@@ -435,7 +440,7 @@ public class Account extends AppCompatActivity {
                         public View getView(final int position, View cell, ViewGroup parent) {
                             if (cell == null) {
                                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                                cell = inflater.inflate(R.layout.cell_recipe, null);
+                                cell = inflater != null ? inflater.inflate(R.layout.cell_recipe, null) : null;
                             }
                             final View finalCell = cell;
 
@@ -606,7 +611,7 @@ public class Account extends AppCompatActivity {
                     // Set number of Columns accordingly to the device used
                     float scalefactor = getResources().getDisplayMetrics().density * 150; // 150 is the cell's width
                     int number = getWindowManager().getDefaultDisplay().getWidth();
-                    int columns = (int) ((float) number / (float) scalefactor);
+                    int columns = (int) ((float) number / scalefactor);
                     aGrid.setNumColumns(columns);
 
 

@@ -59,7 +59,7 @@
         android:scaleType="centerCrop"
         ads:srcCompat="@drawable/backgroud"
         android:layout_alignBottom="@+id/oupUserRecipesTxt"
-        />
+        android:contentDescription="TODO" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView

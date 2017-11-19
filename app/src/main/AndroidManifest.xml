@@ -10,7 +10,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -26,6 +27,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.recipes.permission.C2D_MESSAGE" />
+
 
     <application
         android:name="com.mba2dna.apps.bnina.Configs"
@@ -96,6 +98,7 @@
         <activity android:name="com.mba2dna.apps.bnina.EditProfile"></activity>
         <activity android:name="com.mba2dna.apps.bnina.AddEditRecipe"></activity>
         <activity android:name="com.mba2dna.apps.bnina.Comments"></activity>
+        <activity android:name="com.mba2dna.apps.bnina.TermsOfuse"></activity>
     </application>
 
 </manifest>

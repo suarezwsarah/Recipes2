@@ -62,9 +62,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Login extends AppCompatActivity {
 
         /* Views */
-        ProgressDialog pd;
-        EditText usernameTxt;
-        EditText passwordTxt;
+        private ProgressDialog pd;
+        private EditText usernameTxt;
+        private EditText passwordTxt;
 
 
 
@@ -149,13 +149,8 @@ public class Login extends AppCompatActivity {
                     md.update(signature.toByteArray());
                     Log.i("log-", "keyhash: " + Base64.encodeToString(md.digest(), Base64.DEFAULT));
                 }
-            } catch (PackageManager.NameNotFoundException e) {
-            } catch (NoSuchAlgorithmException e) {}
-
-
-
-
-
+            } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException ignored) {
+            }
 
 
             // MARK: - LOGIN BUTTON ------------------------------------------------------------------
@@ -259,7 +254,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-    void getUserDetailsFromFB() {
+    private void getUserDetailsFromFB() {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),new GraphRequest.GraphJSONObjectCallback(){
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {

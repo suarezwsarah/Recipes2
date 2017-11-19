@@ -65,14 +65,14 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Home extends AppCompatActivity {
 
     /* Views */
-    LinearLayout searchLayout;
-    EditText searchTxt;
-    ProgressDialog pd;
+    private LinearLayout searchLayout;
+    private EditText searchTxt;
+    private ProgressDialog pd;
 
 
     /* Variables */
-    List<ParseObject> recipesArray;
-    List<ParseObject> likesArray;
+    private List<ParseObject> recipesArray;
+    private List<ParseObject> likesArray;
 
 
     // ON START() ----------------------------------------------------------------------
@@ -236,13 +236,13 @@ public class Home extends AppCompatActivity {
         // Init AdMob banner
         AdView mAdView = (AdView) findViewById(R.id.admobBanner);
         AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
 
     }// end onCreate()
 
 
     // MARK: - QUERY RECIPES ------------------------------------------------------------------
-    void queryRecipes(String searchText) {
+    private void queryRecipes(String searchText) {
         pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
@@ -250,7 +250,7 @@ public class Home extends AppCompatActivity {
         ParseQuery query = new ParseQuery(Configs.RECIPES_CLASS_NAME);
 
         if (!searchText.matches("")) {
-            List<String> keywords = new ArrayList<String>();
+            List<String> keywords = new ArrayList<>();
             String[] one = searchTxt.getText().toString().toLowerCase().split(" ");
             for (String keyw : one) {
                 keywords.add(keyw);
@@ -439,7 +439,7 @@ public class Home extends AppCompatActivity {
                                                                             // Send push notification
                                                                             final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + rObj.getString(Configs.RECIPES_TITLE);
 
-                                                                            HashMap<String, Object> params = new HashMap<String, Object>();
+                                                                            HashMap<String, Object> params = new HashMap<>();
                                                                             params.put("someKey", userPointer.getObjectId());
                                                                             params.put("data", pushMessage);
 
@@ -549,7 +549,7 @@ public class Home extends AppCompatActivity {
                     // Set number of Columns accordingly to the device used
                     float scalefactor = getResources().getDisplayMetrics().density * 150; // 150 is the cell's width
                     int number = getWindowManager().getDefaultDisplay().getWidth();
-                    int columns = (int) ((float) number / (float) scalefactor);
+                    int columns = (int) ((float) number / scalefactor);
                     aGrid.setNumColumns(1);//columns
 
 
@@ -565,14 +565,14 @@ public class Home extends AppCompatActivity {
 
 
     // MARK: - HIDE/SHOW SEARCH LAYOUT ------------------------------------------------------
-    void hideSearchLayout() {
+    private void hideSearchLayout() {
         ViewGroup.MarginLayoutParams marginParams = new ViewGroup.MarginLayoutParams(searchLayout.getLayoutParams());
         marginParams.setMargins(0, -200, 0, 0);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(marginParams);
         searchLayout.setLayoutParams(layoutParams);
     }
 
-    void showSearchLayout() {
+    private void showSearchLayout() {
         ViewGroup.MarginLayoutParams marginParams = new ViewGroup.MarginLayoutParams(searchLayout.getLayoutParams());
         marginParams.setMargins(0, 100, 0, 0);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(marginParams);
@@ -581,7 +581,7 @@ public class Home extends AppCompatActivity {
 
 
     // MARK: - DISMISS KEYBOARD
-    public void dismissKeyboard() {
+    private void dismissKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchTxt.getWindowToken(), 0);
     }

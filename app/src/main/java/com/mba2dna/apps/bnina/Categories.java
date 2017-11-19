@@ -73,8 +73,8 @@ public class Categories extends AppCompatActivity {
 
 
     // MARK: - SETUP CATEGORIES LISTVIEW ---------------------------------------------------------------
-    void setupCategoriesListView() {
-        final List<String>catArray = new ArrayList<String>(Arrays.asList(Configs.categoriesArray));
+    private void setupCategoriesListView() {
+        final List<String>catArray = new ArrayList<>(Arrays.asList(Configs.categoriesArray));
 
         class ListAdapter extends BaseAdapter {
             private Context context;

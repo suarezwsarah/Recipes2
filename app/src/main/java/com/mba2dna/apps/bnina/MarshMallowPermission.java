@@ -17,9 +17,9 @@ import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
 
-public class MarshMallowPermission {
+class MarshMallowPermission {
 
-    Activity activity;
+    private final Activity activity;
 
     public MarshMallowPermission(Activity activity) {
         this.activity = activity;
@@ -30,47 +30,27 @@ public class MarshMallowPermission {
     // CHECK PERMISSIONS -------------------------------------------------------------------------
     public boolean checkPermissionForLocation() {
         int result = ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
     public boolean checkPermissionForRecord() {
         int result = ContextCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
     public boolean checkPermissionForReadExternalStorage() {
         int result = ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
     public boolean checkPermissionForWriteExternalStorage() {
         int result = ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
     public boolean checkPermissionForCamera() {
         int result = ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
 

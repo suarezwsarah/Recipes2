@@ -53,7 +53,8 @@
             android:layout_below="@+id/crAvatarImg"
             android:layout_marginTop="15dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/backgroud" />
+            app:srcCompat="@drawable/backgroud"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/crRecipeTitletxt"
@@ -122,7 +123,8 @@
                 android:layout_above="@+id/crCategoryTxt"
                 android:layout_toStartOf="@+id/crCommentsTxt"
                 android:background="@drawable/comment_butt"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/crCommentsTxt"

@@ -58,15 +58,18 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class OtherUserProfile extends AppCompatActivity {
 
     /* Views */
-    ImageView avatarImg;
-    TextView titleTxt, fullnameTxt, aboutUserTxt, userRecipesTxt;
-    ProgressDialog pd;
+    private ImageView avatarImg;
+    private TextView titleTxt;
+    private TextView fullnameTxt;
+    private TextView aboutUserTxt;
+    private TextView userRecipesTxt;
+    private ProgressDialog pd;
 
 
     /* Variables */
-    ParseUser otherUserObj;
-    List<ParseObject>otherUserRecipesArray;
-    List<ParseObject>likesArray;
+    private ParseUser otherUserObj;
+    private List<ParseObject>otherUserRecipesArray;
+    private List<ParseObject>likesArray;
 
 
     @Override
@@ -142,7 +145,7 @@ public class OtherUserProfile extends AppCompatActivity {
                                   pd.show();
 
                                   // Report user via Cloud Code
-                                  HashMap<String, Object> params = new HashMap<String, Object>();
+                                  HashMap<String, Object> params = new HashMap<>();
                                   params.put("userId", otherUserObj.getObjectId());
                                   params.put("reportMessage", editTxt.getText().toString());
 
@@ -221,7 +224,7 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
     // MARK: - SHOW OTHER USER DETAILS --------------------------------------------------------
-    void showUserDetails() {
+    private void showUserDetails() {
         // Set title
         titleTxt.setText(otherUserObj.getString(Configs.USER_FULLNAME));
        // titleTxt.setTypeface(Configs.typeWriter);
@@ -256,7 +259,7 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
     // MARK: - QUERY USER RECIPES ---------------------------------------------------------------
-    void queryUserRecipes() {
+    private void queryUserRecipes() {
         pd.setMessage("يرجى الإنتضار...");
         pd.show();
 
@@ -400,7 +403,7 @@ public class OtherUserProfile extends AppCompatActivity {
                                                                             // Send push notification
                                                                             final String pushMessage = currUser.getString(Configs.USER_FULLNAME) + " أحب وصفك: " + rObj.getString(Configs.RECIPES_TITLE);
 
-                                                                            HashMap<String, Object> params = new HashMap<String, Object>();
+                                                                            HashMap<String, Object> params = new HashMap<>();
                                                                             params.put("someKey", userPointer.getObjectId());
                                                                             params.put("data", pushMessage);
 
@@ -494,7 +497,7 @@ public class OtherUserProfile extends AppCompatActivity {
                     // Set number of Columns accordingly to the device used
                     float scalefactor = getResources().getDisplayMetrics().density * 150; // 150 is the cell's width
                     int number = getWindowManager().getDefaultDisplay().getWidth();
-                    int columns = (int) ((float) number / (float) scalefactor);
+                    int columns = (int) ((float) number / scalefactor);
                     aGrid.setNumColumns(columns);
 
 

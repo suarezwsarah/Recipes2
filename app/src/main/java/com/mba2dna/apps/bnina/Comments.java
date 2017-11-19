@@ -42,9 +42,9 @@ import java.util.List;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Comments extends AppCompatActivity {
-    EditText commentTxt;
-    List<ParseObject> commentsArray;
-    ParseObject recipeObj;
+    private EditText commentTxt;
+    private List<ParseObject> commentsArray;
+    private ParseObject recipeObj;
 
 
     @Override
@@ -104,7 +104,7 @@ public class Comments extends AppCompatActivity {
                 if (e == null) {
                     Configs.hidePD();
                     Comments.this.dismissKeyboard();
-                    Comments.this.recipeObj.increment(Configs.RECIPES_COMMENTS, Integer.valueOf(1));
+                    Comments.this.recipeObj.increment(Configs.RECIPES_COMMENTS, 1);
                     Comments.this.recipeObj.saveInBackground();
                     Comments.this.recipeObj.getParseObject(Configs.COMMENTS_USER_POINTER).fetchIfNeededInBackground(new C07731());
                     return;
@@ -148,12 +148,12 @@ public class Comments extends AppCompatActivity {
             }
 
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                ((ParseObject) Comments.this.commentsArray.get(position)).getParseObject(Configs.COMMENTS_USER_POINTER).fetchIfNeededInBackground(new C07761());
+                Comments.this.commentsArray.get(position).getParseObject(Configs.COMMENTS_USER_POINTER).fetchIfNeededInBackground(new C07761());
             }
         }
 
         class AnonymousClass1ListAdapter extends BaseAdapter {
-            private Context context;
+            private final Context context;
 
             public AnonymousClass1ListAdapter(Context context, List<ParseObject> list) {
                 this.context = context;
@@ -165,7 +165,7 @@ public class Comments extends AppCompatActivity {
                     cell = ((LayoutInflater) this.context.getSystemService("layout_inflater")).inflate(R.layout.cell_comment, null);
                 }
                 final View finalCell = cell;
-                final ParseObject comObj = (ParseObject) Comments.this.commentsArray.get(position);
+                final ParseObject comObj = Comments.this.commentsArray.get(position);
                 comObj.getParseObject(Configs.COMMENTS_USER_POINTER).fetchIfNeededInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject userPointer, ParseException e) {
                         ((TextView) finalCell.findViewById(R.id.ccFullnameTxt)).setText(userPointer.getString(Configs.USER_FULLNAME));
@@ -234,22 +234,22 @@ public class Comments extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        ((Button) findViewById(R.id.commRefreshButt)).setOnClickListener(new OnClickListener() {
+        findViewById(R.id.commRefreshButt).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 queryComments();
             }
         });
-        ((Button) findViewById(R.id.commBackButt)).setOnClickListener(new OnClickListener() {
+        findViewById(R.id.commBackButt).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-        ((Button) findViewById(R.id.comSendCommButt)).setOnClickListener(new C07753());
+        findViewById(R.id.comSendCommButt).setOnClickListener(new C07753());
     }
 
-    void queryComments() {
+    private void queryComments() {
         Configs.showPD("يرجى الإنتضار...", this);
         ParseQuery query = ParseQuery.getQuery(Configs.COMMENTS_CLASS_NAME);
         query.whereEqualTo(Configs.COMMENTS_RECIPE_POINTER, recipeObj);
@@ -258,7 +258,7 @@ public class Comments extends AppCompatActivity {
     }
 
     @SuppressLint("WrongConstant")
-    public void dismissKeyboard() {
+    private void dismissKeyboard() {
         ((InputMethodManager) getSystemService("input_method")).hideSoftInputFromWindow(commentTxt.getWindowToken(), 0);
        commentTxt.setText("");
     }
